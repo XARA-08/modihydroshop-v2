@@ -106,8 +106,8 @@ body {
 .btn:focus-visible { outline: 2px solid var(--color-navy-900); outline-offset: 2px; }
 .btn-primary { background: var(--color-navy-900); color: #fff; }
 .btn-primary:hover { background: var(--color-navy-700); transform: translateY(-1px); box-shadow: var(--shadow-soft); }
-.btn-accent { background: var(--color-crimson-400); color: #fff; }
-.btn-accent:hover { background: var(--color-crimson-500); transform: translateY(-1px); }
+.btn-accent { background: var(--color-crimson-400); color: var(--color-navy-900); }
+.btn-accent:hover { background: var(--color-crimson-500); color: #fff; transform: translateY(-1px); }
 .btn-outline { background: transparent; color: var(--color-navy-900); border-color: var(--color-navy-900); }
 .btn-outline:hover { background: var(--color-navy-900); color: #fff; }
 .btn-ghost { background: transparent; color: var(--color-navy-900); }

@@ -3,6 +3,7 @@ import { site } from '@/data/site';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import WhatsAppFloat from '@/components/WhatsAppFloat.astro';
+import { ClientRouter } from 'astro:transitions';
 import '../styles/global.css';
 
 interface Props {
@@ -33,7 +34,9 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, site.url).href;
     <meta name="generator" content={Astro.generator} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" /></noscript>
 
     <title>{pageTitle}</title>
     <meta name="description" content={description} />
@@ -56,6 +59,20 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, site.url).href;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
+    <script is:inline>
+      (function () {
+        try {
+          const stored = localStorage.getItem('theme');
+          const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (stored === 'dark' || (!stored && prefersDark)) {
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <ClientRouter />
+
     {structuredData && (
       <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
     )}
@@ -69,12 +86,82 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, site.url).href;
     <Footer />
     <WhatsAppFloat />
 
+    <!-- Back to top -->
+    <button id="back-to-top" class="hidden fixed bottom-24 right-6 z-40 w-11 h-11 rounded-full bg-navy-900 text-white shadow-lift hover:scale-105 transition" aria-label="Back to top" type="button">
+      <svg class="w-5 h-5 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"/></svg>
+    </button>
     <script is:inline>
-      // Reveal-on-scroll
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+      (function () {
+        const b = document.getElementById('back-to-top');
+        if (!b) return;
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 600) b.classList.remove('hidden'); else b.classList.add('hidden');
+        }, { passive: true });
+        b.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      })();
+    </script>
+
+    <!-- POPIA cookie consent -->
+    <div id="cookie-banner" class="hidden fixed bottom-0 inset-x-0 z-40 bg-navy-900 text-white p-4 md:p-6">
+      <div class="container flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-seal-100">
+          We use cookies to improve your experience. By continuing, you agree to our
+          <a href="/privacy" class="underline text-crimson-300">Privacy Policy</a> and
+          <a href="/popia" class="underline text-crimson-300">POPIA Notice</a>.
+        </p>
+        <button id="cookie-accept" class="btn btn-accent btn-sm flex-shrink-0">Accept</button>
+      </div>
+    </div>
+    <script is:inline>
+      (function () {
+        try {
+          if (!localStorage.getItem('cookie-consent')) {
+            const b = document.getElementById('cookie-banner');
+            if (b) b.classList.remove('hidden');
+          }
+          const btn = document.getElementById('cookie-accept');
+          if (btn) btn.addEventListener('click', () => {
+            localStorage.setItem('cookie-consent', '1');
+            const b = document.getElementById('cookie-banner');
+            if (b) b.classList.add('hidden');
+          });
+        } catch (e) {}
+      })();
+    </script>
+
+    <script>
+      import 'lenis/dist/lenis.css';
+      import Lenis from 'lenis';
+      import { gsap } from 'gsap';
+      import { ScrollTrigger } from 'gsap/ScrollTrigger';
+      gsap.registerPlugin(ScrollTrigger);
+
+      let lenis;
+      let lenisReady = false;
+      function initLenis() {
+        if (lenisReady) return;
+        lenisReady = true;
+        lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+        lenis.on('scroll', ScrollTrigger.update);
+        gsap.ticker.add((time) => lenis.raf(time * 1000));
+        gsap.ticker.lagSmoothing(0);
+      }
+      function animateReveals() {
+        document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => {
+          el.classList.add('revealed');
+          gsap.fromTo(el, { opacity: 0, y: 20 }, {
+            opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
+            scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+          });
+        });
+        ScrollTrigger.refresh();
+      }
+      function boot() {
+        initLenis();
+        animateReveals();
+      }
+      document.addEventListener('astro:page-load', boot);
+      if (document.readyState !== 'loading') boot();
     </script>
   </body>
 </html>
