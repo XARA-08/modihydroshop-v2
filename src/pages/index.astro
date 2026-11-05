@@ -25,14 +25,14 @@ const structuredData = {
 };
 ---
 <BaseLayout title={site.name} description={site.description} structuredData={structuredData}>
-  <section class="relative overflow-hidden bg-seal-50">
+  <section class="relative overflow-hidden bg-surface-2 min-h-[520px]">
     <div class="container pt-20 pb-24 md:pt-28 md:pb-32">
       <div class="max-w-3xl">
         <span class="badge badge-seal mb-6">Purified since {site.founded}</span>
-        <h1 class="heading-1 text-navy-900 mb-6">
+        <h1 class="heading-1 text-foreground mb-6">
           Pure water for the businesses and communities we serve.
         </h1>
-        <p class="body-lg text-muted max-w-2xl mb-8">
+        <p class="body-lg text-muted-foreground max-w-2xl mb-8">
           {site.description}
         </p>
         <div class="flex flex-wrap gap-3">
@@ -46,26 +46,26 @@ const structuredData = {
     <div class="absolute -right-24 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-seal-200/60 blur-3xl pointer-events-none" aria-hidden="true"></div>
   </section>
 
-  <section class="border-y border-line bg-white">
+  <section class="border-y border-line bg-surface">
     <div class="container py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div><div class="heading-3 text-navy-900">{site.founded}</div><div class="caption">Founded</div></div>
-      <div><div class="heading-3 text-navy-900">RO</div><div class="caption">Purification</div></div>
-      <div><div class="heading-3 text-navy-900">2</div><div class="caption">Service Regions</div></div>
-      <div><div class="heading-3 text-navy-900">B-BBEE</div><div class="caption">Level 1 (pending verification)</div></div>
+      <div><div class="heading-3 text-foreground">{site.founded}</div><div class="caption">Founded</div></div>
+      <div><div class="heading-3 text-foreground">RO</div><div class="caption">Purification</div></div>
+      <div><div class="heading-3 text-foreground">2</div><div class="caption">Service Regions</div></div>
+      <div><div class="heading-3 text-foreground">B-BBEE</div><div class="caption">Level 1 (pending verification)</div></div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <header class="max-w-2xl mb-12">
-        <h2 class="heading-2 text-navy-900 mb-3">Our Commitment</h2>
-        <p class="body-lg text-muted">Six principles that guide every drop we produce, every service we deliver, and every relationship we build.</p>
+        <h2 class="heading-2 text-foreground mb-3">Our Commitment</h2>
+        <p class="body-lg text-muted-foreground">Six principles that guide every drop we produce, every service we deliver, and every relationship we build.</p>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {values.map((v) => (
           <article class="card p-6 reveal">
-            <h3 class="heading-4 text-navy-900 mb-2">{v.data.title}</h3>
-            <p class="text-sm text-muted">{v.data.description}</p>
+            <h3 class="heading-4 text-foreground mb-2">{v.data.title}</h3>
+            <p class="text-sm text-muted-foreground">{v.data.description}</p>
           </article>
         ))}
       </div>
@@ -76,8 +76,8 @@ const structuredData = {
     <div class="container">
       <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
         <div>
-          <h2 class="heading-2 text-navy-900 mb-2">Featured Products</h2>
-          <p class="body text-muted">Our most popular hydration solutions.</p>
+          <h2 class="heading-2 text-foreground mb-2">Featured Products</h2>
+          <p class="body text-muted-foreground">Our most popular hydration solutions.</p>
         </div>
         <a href="/products" class="btn btn-outline btn-sm">View all products</a>
       </header>
@@ -85,14 +85,14 @@ const structuredData = {
         {products.map((p) => (
           <article class="card p-6 reveal">
             <span class="badge badge-seal mb-3">{p.data.category.replace('-', ' ')}</span>
-            <h3 class="heading-4 text-navy-900 mb-1">{p.data.name}</h3>
-            <p class="text-sm text-muted mb-4">{p.data.tagline}</p>
+            <h3 class="heading-4 text-foreground mb-1">{p.data.name}</h3>
+            <p class="text-sm text-muted-foreground mb-4">{p.data.tagline}</p>
             {p.data.sizes.length > 0 && (
-              <p class="text-sm font-semibold text-navy-900">
+              <p class="text-sm font-semibold text-foreground">
                 From R{Math.min(...p.data.sizes.map(s=>s.price)).toFixed(2)}
               </p>
             )}
-            <a href={`/products/${p.id.replace('.md','')}`} class="inline-block mt-4 text-sm font-semibold text-navy-700 hover:text-crimson-500">Learn more →</a>
+            <a href={`/products/${p.id.replace('.md','')}`} class="inline-block mt-4 text-sm font-semibold text-foreground hover:text-crimson-500">Learn more →</a>
           </article>
         ))}
       </div>
@@ -102,8 +102,8 @@ const structuredData = {
   <section class="section">
     <div class="container">
       <header class="max-w-2xl mb-12">
-        <h2 class="heading-2 text-navy-900 mb-3">How We Purify</h2>
-        <p class="body-lg text-muted">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle.</p>
+        <h2 class="heading-2 text-foreground mb-3">How We Purify</h2>
+        <p class="body-lg text-muted-foreground">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle.</p>
       </header>
       <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
         {[
@@ -116,8 +116,8 @@ const structuredData = {
         ].map((s) => (
           <li class="card p-6 reveal">
             <div class="text-xs font-bold text-crimson-400 mb-2">{s.n}</div>
-            <h3 class="heading-4 text-navy-900 mb-2">{s.t}</h3>
-            <p class="text-sm text-muted">{s.d}</p>
+            <h3 class="heading-4 text-foreground mb-2">{s.t}</h3>
+            <p class="text-sm text-muted-foreground">{s.d}</p>
           </li>
         ))}
       </ol>
@@ -130,15 +130,15 @@ const structuredData = {
   <section class="section bg-surface-2">
     <div class="container">
       <header class="max-w-2xl mb-12">
-        <h2 class="heading-2 text-navy-900 mb-3">Our Services</h2>
-        <p class="body-lg text-muted">Complete hydration solutions for homes, businesses, and events of any scale.</p>
+        <h2 class="heading-2 text-foreground mb-3">Our Services</h2>
+        <p class="body-lg text-muted-foreground">Complete hydration solutions for homes, businesses, and events of any scale.</p>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {services.map((s) => (
           <article class="card p-6 reveal">
-            <h3 class="heading-4 text-navy-900 mb-2">{s.data.name}</h3>
-            <p class="text-sm text-muted mb-4">{s.data.description}</p>
-            <ul class="text-sm text-muted space-y-1">
+            <h3 class="heading-4 text-foreground mb-2">{s.data.name}</h3>
+            <p class="text-sm text-muted-foreground mb-4">{s.data.description}</p>
+            <ul class="text-sm text-muted-foreground space-y-1">
               {s.data.features.slice(0,3).map((f) => <li>· {f}</li>)}
             </ul>
           </article>
@@ -159,7 +159,7 @@ const structuredData = {
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
           <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Chat on WhatsApp</a>
-          <a href="/contact" class="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-navy-900">Contact us</a>
+          <a href="/contact" class="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-foreground">Contact us</a>
         </div>
       </div>
     </div>

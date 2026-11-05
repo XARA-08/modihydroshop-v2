@@ -3,7 +3,7 @@ import { site, waLink } from '@/data/site';
 ---
 <header class="sticky top-0 z-40 bg-white/80 backdrop-blur border-b border-line" id="site-header">
   <div class="container flex items-center justify-between h-16">
-    <a href="/" class="flex items-center gap-2 font-display font-bold text-navy-900 text-lg">
+    <a href="/" class="flex items-center gap-2 font-display font-bold text-foreground text-lg">
       <svg viewBox="0 0 32 32" class="w-8 h-8" aria-hidden="true">
         <circle cx="16" cy="16" r="14" fill="#DBF2FC" stroke="#072D59" stroke-width="2"/>
         <path d="M16 8c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z" fill="#072D59"/>
@@ -14,14 +14,14 @@ import { site, waLink } from '@/data/site';
 
     <nav class="hidden md:flex items-center gap-1" aria-label="Primary">
       {site.nav.map((item) => (
-        <a href={item.href} class="px-3 py-2 text-sm font-medium text-muted hover:text-navy-900 transition-colors rounded-md hover:bg-seal-100">
+        <a href={item.href} class="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-seal-100">
           {item.label}
         </a>
       ))}
     </nav>
 
     <div class="flex items-center gap-2">
-      <button id="theme-toggle" class="p-2 rounded-md hover:bg-seal-100 text-muted" aria-label="Toggle dark mode" type="button">
+      <button id="theme-toggle" class="p-2 rounded-md hover:bg-seal-100 text-muted-foreground" aria-label="Toggle dark mode" type="button">
         <svg class="w-5 h-5 dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
         <svg class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
       </button>
@@ -38,7 +38,7 @@ import { site, waLink } from '@/data/site';
   <nav id="mobile-menu" class="md:hidden hidden border-t border-line bg-white" aria-label="Mobile">
     <div class="container py-4 flex flex-col gap-1">
       {site.nav.map((item) => (
-        <a href={item.href} class="px-3 py-2 text-base font-medium text-muted hover:text-navy-900 hover:bg-seal-100 rounded-md">{item.label}</a>
+        <a href={item.href} class="px-3 py-2 text-base font-medium text-muted-foreground hover:text-foreground hover:bg-seal-100 rounded-md">{item.label}</a>
       ))}
       <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-accent mt-2 justify-center">Chat on WhatsApp</a>
     </div>

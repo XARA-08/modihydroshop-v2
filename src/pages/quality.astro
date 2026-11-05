@@ -8,28 +8,28 @@ const certs = (await getCollection('certifications')).sort((a,b)=>a.data.order-b
 <BaseLayout title="Quality & Certifications" description="Our approach to water quality, testing and certification. Certificates available on request.">
   <section class="section-sm bg-seal-50">
     <div class="container">
-      <h1 class="heading-1 text-navy-900 mb-4">Quality & Certifications</h1>
-      <p class="body-lg text-muted max-w-2xl">We don't just claim quality — we prove it. Independent audits, batch traceability, and transparent reporting keep us accountable.</p>
+      <h1 class="heading-1 text-foreground mb-4">Quality & Certifications</h1>
+      <p class="body-lg text-muted-foreground max-w-2xl">We don't just claim quality — we prove it. Independent audits, batch traceability, and transparent reporting keep us accountable.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <header class="mb-10">
-        <h2 class="heading-2 text-navy-900 mb-3">Certifications</h2>
-        <p class="body text-muted">Status reflects verification state. Certificates are provided on request.</p>
+        <h2 class="heading-2 text-foreground mb-3">Certifications</h2>
+        <p class="body text-muted-foreground">Status reflects verification state. Certificates are provided on request.</p>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {certs.map((c) => (
           <article class="card p-6 reveal">
             <div class="flex items-center justify-between mb-3">
-              <h3 class="heading-4 text-navy-900">{c.data.name}</h3>
+              <h3 class="heading-4 text-foreground">{c.data.name}</h3>
               <span class={`badge ${c.data.status === 'verified' ? 'badge-primary' : 'badge-seal'}`}>
                 {c.data.status === 'verified' ? 'Verified' : 'Pending'}
               </span>
             </div>
-            <p class="text-xs text-muted mb-2">{c.data.issuer}</p>
-            <p class="text-sm text-muted">{c.data.description}</p>
+            <p class="text-xs text-muted-foreground mb-2">{c.data.issuer}</p>
+            <p class="text-sm text-muted-foreground">{c.data.description}</p>
           </article>
         ))}
       </div>
@@ -38,7 +38,7 @@ const certs = (await getCollection('certifications')).sort((a,b)=>a.data.order-b
 
   <section class="section bg-surface-2">
     <div class="container max-w-3xl">
-      <h2 class="heading-2 text-navy-900 mb-6">Our Quality Process</h2>
+      <h2 class="heading-2 text-foreground mb-6">Our Quality Process</h2>
       <ol class="space-y-4">
         {[
           'Source water is pre-filtered to remove sediment and chlorine.',
@@ -50,7 +50,7 @@ const certs = (await getCollection('certifications')).sort((a,b)=>a.data.order-b
         ].map((step, i) => (
           <li class="flex gap-4">
             <span class="flex-shrink-0 w-8 h-8 rounded-full bg-navy-900 text-white flex items-center justify-center text-sm font-bold">{i+1}</span>
-            <span class="pt-1 text-muted">{step}</span>
+            <span class="pt-1 text-muted-foreground">{step}</span>
           </li>
         ))}
       </ol>
@@ -59,8 +59,8 @@ const certs = (await getCollection('certifications')).sort((a,b)=>a.data.order-b
 
   <section class="section text-center">
     <div class="container">
-      <h2 class="heading-2 text-navy-900 mb-4">Need a Certificate of Analysis?</h2>
-      <p class="body-lg text-muted mb-6">Batch-level documentation available on request for qualifying orders.</p>
+      <h2 class="heading-2 text-foreground mb-4">Need a Certificate of Analysis?</h2>
+      <p class="body-lg text-muted-foreground mb-6">Batch-level documentation available on request for qualifying orders.</p>
       <a href={waLink('Hi, I need a Certificate of Analysis.')} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Request via WhatsApp</a>
     </div>
   </section>

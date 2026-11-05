@@ -9,8 +9,8 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
 <BaseLayout title="About Us" description="Learn about Modi Hydroshop — a premium water purification and bottling company founded in 2020.">
   <section class="section-sm bg-seal-50">
     <div class="container max-w-3xl">
-      <h1 class="heading-1 text-navy-900 mb-6">About Modi Hydroshop</h1>
-      <p class="body-lg text-muted">
+      <h1 class="heading-1 text-foreground mb-6">About Modi Hydroshop</h1>
+      <p class="body-lg text-muted-foreground">
         Founded in {site.founded}, Modi Hydroshop Pty Ltd has grown from a local water purification startup into a trusted supplier of premium hydration solutions across Limpopo and Gauteng.
       </p>
     </div>
@@ -18,15 +18,15 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
 
   <section class="section">
     <div class="container max-w-3xl">
-      <h2 class="heading-2 text-navy-900 mb-6">Our Story</h2>
-      <p class="body text-muted mb-4">
+      <h2 class="heading-2 text-foreground mb-6">Our Story</h2>
+      <p class="body text-muted-foreground mb-4">
         Founded in {site.founded} by Lesiba Maleka, Modi Hydroshop Pty Ltd supplies purified still water, sparkling water, natural fruit juice, crystal ice cubes, and refill services. We use a Reverse Osmosis process to purify our water.
       </p>
-      <p class="body text-muted mb-4">
-        <strong class="text-navy-900">Vision:</strong> To be the supplier of reputable and trustworthy products — to challenge the bigger suppliers so that we become top-of-mind products. The ultimate aim is becoming the top supplier of bottled water and allied products in the country.
+      <p class="body text-muted-foreground mb-4">
+        <strong class="text-foreground">Vision:</strong> To be the supplier of reputable and trustworthy products — to challenge the bigger suppliers so that we become top-of-mind products. The ultimate aim is becoming the top supplier of bottled water and allied products in the country.
       </p>
-      <p class="body text-muted">
-        <strong class="text-navy-900">Mission:</strong> We are driven by an innovative, entrepreneurial and competitive spirit. Our motivation is to strive for success through innovation and the buy-in of our well-trained and motivated staff — supplying and partnering with our clients within their business to motivate the range, stockholding and sales/promotion of our products.
+      <p class="body text-muted-foreground">
+        <strong class="text-foreground">Mission:</strong> We are driven by an innovative, entrepreneurial and competitive spirit. Our motivation is to strive for success through innovation and the buy-in of our well-trained and motivated staff — supplying and partnering with our clients within their business to motivate the range, stockholding and sales/promotion of our products.
       </p>
     </div>
   </section>
@@ -34,13 +34,13 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
   <section class="section bg-surface-2">
     <div class="container">
       <header class="mb-10">
-        <h2 class="heading-2 text-navy-900 mb-3">Our Values</h2>
+        <h2 class="heading-2 text-foreground mb-3">Our Values</h2>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {values.map((v) => (
           <article class="card p-6 reveal">
-            <h3 class="heading-4 text-navy-900 mb-2">{v.data.title}</h3>
-            <p class="text-sm text-muted">{v.data.description}</p>
+            <h3 class="heading-4 text-foreground mb-2">{v.data.title}</h3>
+            <p class="text-sm text-muted-foreground">{v.data.description}</p>
           </article>
         ))}
       </div>
@@ -50,18 +50,18 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
   <section class="section">
     <div class="container">
       <header class="mb-10">
-        <h2 class="heading-2 text-navy-900 mb-3">Leadership</h2>
-        <p class="body text-muted">We source, train, motivate and guide our staff from the local communities.</p>
+        <h2 class="heading-2 text-foreground mb-3">Leadership</h2>
+        <p class="body text-muted-foreground">We source, train, motivate and guide our staff from the local communities.</p>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {team.map((m) => (
           <article class="card p-6 reveal text-center">
-            <div class="w-16 h-16 rounded-full bg-seal-200 mx-auto mb-4 flex items-center justify-center text-navy-900 font-bold text-xl">
+            <div class="w-16 h-16 rounded-full bg-seal-200 mx-auto mb-4 flex items-center justify-center text-foreground font-bold text-xl">
               {m.data.name.split(' ').map(n=>n[0]).join('').slice(0,2)}
             </div>
-            <h3 class="heading-4 text-navy-900">{m.data.name}</h3>
+            <h3 class="heading-4 text-foreground">{m.data.name}</h3>
             <p class="text-sm text-crimson-500 font-medium mb-2">{m.data.role}</p>
-            <p class="text-sm text-muted">{m.data.bio}</p>
+            <p class="text-sm text-muted-foreground">{m.data.bio}</p>
           </article>
         ))}
       </div>
@@ -70,8 +70,8 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
 
   <section class="section bg-surface-2 text-center">
     <div class="container">
-      <h2 class="heading-2 text-navy-900 mb-4">Want to work with us?</h2>
-      <p class="body-lg text-muted mb-6">We're always open to partnerships and new clients.</p>
+      <h2 class="heading-2 text-foreground mb-4">Want to work with us?</h2>
+      <p class="body-lg text-muted-foreground mb-6">We're always open to partnerships and new clients.</p>
       <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Get in touch</a>
     </div>
   </section>

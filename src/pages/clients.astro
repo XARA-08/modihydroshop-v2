@@ -5,16 +5,16 @@ import { site, waLink } from '@/data/site';
 <BaseLayout title="Our Clients" description="Modi Hydroshop supplies purified water, sparkling water, juice, ice and refill services to businesses, hospitality venues and events across Limpopo and Gauteng.">
   <section class="section-sm bg-seal-50">
     <div class="container">
-      <h1 class="heading-1 text-navy-900 mb-4">Our Clients</h1>
-      <p class="body-lg text-muted max-w-2xl">We partner with businesses, hospitality venues, offices and events across Limpopo and Gauteng.</p>
+      <h1 class="heading-1 text-foreground mb-4">Our Clients</h1>
+      <p class="body-lg text-muted-foreground max-w-2xl">We partner with businesses, hospitality venues, offices and events across Limpopo and Gauteng.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
       <header class="mb-10">
-        <h2 class="heading-2 text-navy-900 mb-3">Who We Serve</h2>
-        <p class="body text-muted">Hydration solutions tailored to each sector's volume, quality and delivery needs.</p>
+        <h2 class="heading-2 text-foreground mb-3">Who We Serve</h2>
+        <p class="body text-muted-foreground">Hydration solutions tailored to each sector's volume, quality and delivery needs.</p>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {[
@@ -24,8 +24,8 @@ import { site, waLink } from '@/data/site';
           { title: 'Events & Conferences', desc: 'Mobile refill stations, branded water and ice for events of any scale.' },
         ].map((seg) => (
           <article class="card p-6 reveal">
-            <h3 class="heading-4 text-navy-900 mb-3">{seg.title}</h3>
-            <p class="text-sm text-muted">{seg.desc}</p>
+            <h3 class="heading-4 text-foreground mb-3">{seg.title}</h3>
+            <p class="text-sm text-muted-foreground">{seg.desc}</p>
           </article>
         ))}
       </div>
@@ -34,8 +34,8 @@ import { site, waLink } from '@/data/site';
 
   <section class="section bg-surface-2 text-center">
     <div class="container max-w-2xl">
-      <h2 class="heading-2 text-navy-900 mb-4">Client Testimonials</h2>
-      <p class="body-lg text-muted mb-6">We are collecting verified testimonials from our clients. If you are a Modi Hydroshop client and would like to be featured, please get in touch.</p>
+      <h2 class="heading-2 text-foreground mb-4">Client Testimonials</h2>
+      <p class="body-lg text-muted-foreground mb-6">We are collecting verified testimonials from our clients. If you are a Modi Hydroshop client and would like to be featured, please get in touch.</p>
       <a href={waLink('Hi, I would like to share my experience as a Modi Hydroshop client.')} target="_blank" rel="noopener noreferrer" class="btn btn-outline">Share Your Experience</a>
     </div>
   </section>

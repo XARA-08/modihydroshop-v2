@@ -15,7 +15,7 @@ const { Content } = await render(post);
   <article class="section-sm">
     <div class="container max-w-3xl">
       <p class="caption mb-3">{post.data.pubDate.toLocaleDateString('en-ZA', { year:'numeric', month:'long', day:'numeric' })} · {post.data.author}</p>
-      <h1 class="heading-1 text-navy-900 mb-6">{post.data.title}</h1>
+      <h1 class="heading-1 text-foreground mb-6">{post.data.title}</h1>
       <div class="prose prose-navy max-w-none">
         <Content />
       </div>
