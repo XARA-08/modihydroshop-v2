@@ -1,0 +1,39 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site, waLink } from '@/data/site';
+
+const faqs = (await getCollection('faqs')).sort((a,b)=>a.data.order-b.data.order);
+---
+<BaseLayout title="FAQ" description="Frequently asked questions about our water purification, products, delivery, refill service, quality testing, and certifications.">
+  <section class="section-sm bg-seal-50">
+    <div class="container">
+      <h1 class="heading-1 text-navy-900 mb-4">Frequently Asked Questions</h1>
+      <p class="body-lg text-muted max-w-2xl">Quick answers to common questions. Can't find what you need? <a href="/contact" class="link">Contact us</a>.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container max-w-3xl">
+      <div class="space-y-3">
+        {faqs.map((f, i) => (
+          <details class="card p-5 group" open={i === 0}>
+            <summary class="flex items-center justify-between cursor-pointer font-semibold text-navy-900 list-none">
+              <span>{f.data.question}</span>
+              <svg class="w-5 h-5 text-muted transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </summary>
+            <p class="mt-3 text-muted body">{f.data.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-navy-900 text-white text-center">
+    <div class="container">
+      <h2 class="heading-2 mb-4">Still have questions?</h2>
+      <p class="body-lg text-seal-200 mb-8 max-w-2xl mx-auto">Our team is here to help.</p>
+      <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Chat on WhatsApp</a>
+    </div>
+  </section>
+</BaseLayout>

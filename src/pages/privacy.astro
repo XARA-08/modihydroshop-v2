@@ -1,0 +1,18 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { site } from '@/data/site';
+---
+<BaseLayout title="Privacy Policy" description="Privacy policy for Modi Hydroshop." noIndex={true}>
+  <section class="section">
+    <div class="container max-w-3xl prose">
+      <h1 class="heading-1 text-navy-900 mb-6">Privacy Policy</h1>
+      <p class="text-muted">Last updated: 2026. This policy describes how {site.legalName} collects, uses and protects your personal information.</p>
+      <h2 class="heading-3 text-navy-900 mt-8 mb-3">Information we collect</h2>
+      <p class="text-muted mb-4">We collect information you provide directly (name, email, phone, messages via contact forms and WhatsApp) and limited technical data (IP address, browser type) for site operation.</p>
+      <h2 class="heading-3 text-navy-900 mt-8 mb-3">How we use it</h2>
+      <p class="text-muted mb-4">To respond to enquiries, process orders, improve our services, and comply with legal obligations. We do not sell your personal information.</p>
+      <h2 class="heading-3 text-navy-900 mt-8 mb-3">Contact</h2>
+      <p class="text-muted">Questions about this policy? Email <a href={`mailto:${site.email}`} class="link">{site.email}</a>.</p>
+    </div>
+  </section>
+</BaseLayout>

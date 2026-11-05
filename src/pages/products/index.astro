@@ -1,0 +1,73 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site, waLink } from '@/data/site';
+
+const products = (await getCollection('products')).sort((a,b)=>a.data.order-b.data.order);
+const categories = ['still-water', 'sparkling-water', 'juice', 'ice-cubes', 'refill'] as const;
+const labels: Record<string,string> = {
+  'still-water': 'Still Water',
+  'sparkling-water': 'Sparkling Water',
+  'juice': 'Natural Juice',
+  'ice-cubes': 'Ice Cubes',
+  'refill': 'Refill',
+};
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Modi Hydroshop Products',
+  itemListElement: products.map((p,i) => ({
+    '@type': 'ListItem',
+    position: i+1,
+    name: p.data.name,
+  })),
+};
+---
+<BaseLayout title="Products" description="Explore our premium water range: Reverse Osmosis purified still water, sparkling water, natural fruit juice, crystal ice cubes, and refill services." structuredData={structuredData}>
+  <section class="section-sm bg-seal-50">
+    <div class="container">
+      <h1 class="heading-1 text-navy-900 mb-4">Our Products</h1>
+      <p class="body-lg text-muted max-w-2xl">Premium hydration solutions crafted through multi-stage Reverse Osmosis purification.</p>
+    </div>
+  </section>
+
+  {categories.map((cat) => {
+    const items = products.filter(p => p.data.category === cat);
+    if (!items.length) return null;
+    return (
+      <section class="section" id={cat}>
+        <div class="container">
+          <header class="mb-8">
+            <h2 class="heading-2 text-navy-900">{labels[cat]}</h2>
+          </header>
+          <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {items.map((p) => (
+              <article class="card p-6 reveal">
+                <h3 class="heading-4 text-navy-900 mb-1">{p.data.name}</h3>
+                <p class="text-sm text-muted mb-4">{p.data.tagline}</p>
+                <p class="text-sm text-muted mb-4">{p.data.description}</p>
+                {p.data.sizes.length > 0 && (
+                  <div class="flex flex-wrap gap-2 mb-4">
+                    {p.data.sizes.map((s) => (
+                      <span class="badge badge-seal">{s.volume} · R{s.price.toFixed(2)}</span>
+                    ))}
+                  </div>
+                )}
+                <a href={waLink(`Hi, I'd like to order ${p.data.name}.`)} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">Order via WhatsApp</a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
+  })}
+
+  <section class="section bg-surface-2 text-center">
+    <div class="container">
+      <h2 class="heading-2 text-navy-900 mb-4">Need a custom quote?</h2>
+      <p class="body-lg text-muted mb-6">Volume pricing and tailored solutions for your business.</p>
+      <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Chat on WhatsApp</a>
+    </div>
+  </section>
+</BaseLayout>

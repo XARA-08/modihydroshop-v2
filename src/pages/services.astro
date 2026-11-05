@@ -1,0 +1,46 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site, waLink } from '@/data/site';
+
+const services = (await getCollection('services')).sort((a,b)=>a.data.order-b.data.order);
+---
+<BaseLayout title="Services" description="Complete hydration services: bulk water delivery, hospitality supply, refill stations, water testing, and event hydration.">
+  <section class="section-sm bg-seal-50">
+    <div class="container">
+      <h1 class="heading-1 text-navy-900 mb-4">Our Services</h1>
+      <p class="body-lg text-muted max-w-2xl">Complete hydration solutions for homes, businesses, and events of any scale.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid gap-8 md:grid-cols-2">
+        {services.map((s) => (
+          <article class="card p-8 reveal">
+            <h2 class="heading-3 text-navy-900 mb-3">{s.data.name}</h2>
+            <p class="text-sm text-muted mb-6">{s.data.tagline}</p>
+            <p class="body text-muted mb-6">{s.data.description}</p>
+            <ul class="space-y-2 mb-6">
+              {s.data.features.map((f) => (
+                <li class="flex items-start gap-2 text-sm">
+                  <svg class="w-5 h-5 text-crimson-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+            <a href={waLink(`Hi, I'm interested in ${s.data.name}.`)} target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm">Enquire via WhatsApp</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface-2 text-center">
+    <div class="container">
+      <h2 class="heading-2 text-navy-900 mb-4">Not sure which service fits?</h2>
+      <p class="body-lg text-muted mb-6">Talk to us — we'll design a hydration program around your needs.</p>
+      <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">Chat on WhatsApp</a>
+    </div>
+  </section>
+</BaseLayout>

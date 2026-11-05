@@ -1,0 +1,30 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site, waLink } from '@/data/site';
+
+const posts = (await getCollection('posts')).filter(p=>!p.data.draft).sort((a,b)=>b.data.pubDate.valueOf()-a.data.pubDate.valueOf());
+---
+<BaseLayout title="Insights" description="Notes on water quality, purification, sustainability and the communities we serve.">
+  <section class="section-sm bg-seal-50">
+    <div class="container">
+      <h1 class="heading-1 text-navy-900 mb-4">Insights</h1>
+      <p class="body-lg text-muted max-w-2xl">Notes on water quality, purification, sustainability and the communities we serve.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {posts.map((p) => (
+          <article class="card p-6 reveal">
+            <p class="caption mb-2">{p.data.pubDate.toLocaleDateString('en-ZA', { year:'numeric', month:'long', day:'numeric' })}</p>
+            <h2 class="heading-4 text-navy-900 mb-2">{p.data.title}</h2>
+            <p class="text-sm text-muted mb-4">{p.data.description}</p>
+            <a href={`/blog/${p.id.replace('.md','')}`} class="text-sm font-semibold text-crimson-500 hover:text-crimson-600">Read more →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,167 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import { site, waLink } from '@/data/site';
+
+const values = (await getCollection('values')).sort((a,b)=>a.data.order-b.data.order);
+const products = (await getCollection('products')).filter(p=>p.data.featured).sort((a,b)=>a.data.order-b.data.order);
+const services = (await getCollection('services')).sort((a,b)=>a.data.order-b.data.order);
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: site.legalName,
+  description: site.description,
+  url: site.url,
+  telephone: site.phone,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: site.address.street,
+    addressLocality: site.address.city,
+    addressRegion: site.address.region,
+    postalCode: site.address.postalCode,
+    addressCountry: site.address.country,
+  },
+};
+---
+<BaseLayout title={site.name} description={site.description} structuredData={structuredData}>
+  <section class="relative overflow-hidden bg-seal-50">
+    <div class="container pt-20 pb-24 md:pt-28 md:pb-32">
+      <div class="max-w-3xl">
+        <span class="badge badge-seal mb-6">Purified since {site.founded}</span>
+        <h1 class="heading-1 text-navy-900 mb-6">
+          Pure water for the businesses and communities we serve.
+        </h1>
+        <p class="body-lg text-muted max-w-2xl mb-8">
+          {site.description}
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">
+            Chat on WhatsApp
+          </a>
+          <a href="/products" class="btn btn-outline btn-lg">View Products</a>
+        </div>
+      </div>
+    </div>
+    <div class="absolute -right-24 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-seal-200/60 blur-3xl pointer-events-none" aria-hidden="true"></div>
+  </section>
+
+  <section class="border-y border-line bg-white">
+    <div class="container py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+      <div><div class="heading-3 text-navy-900">{site.founded}</div><div class="caption">Founded</div></div>
+      <div><div class="heading-3 text-navy-900">RO</div><div class="caption">Purification</div></div>
+      <div><div class="heading-3 text-navy-900">2</div><div class="caption">Service Regions</div></div>
+      <div><div class="heading-3 text-navy-900">B-BBEE</div><div class="caption">Level 1 (pending verification)</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="max-w-2xl mb-12">
+        <h2 class="heading-2 text-navy-900 mb-3">Our Commitment</h2>
+        <p class="body-lg text-muted">Six principles that guide every drop we produce, every service we deliver, and every relationship we build.</p>
+      </header>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {values.map((v) => (
+          <article class="card p-6 reveal">
+            <h3 class="heading-4 text-navy-900 mb-2">{v.data.title}</h3>
+            <p class="text-sm text-muted">{v.data.description}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface-2">
+    <div class="container">
+      <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
+        <div>
+          <h2 class="heading-2 text-navy-900 mb-2">Featured Products</h2>
+          <p class="body text-muted">Our most popular hydration solutions.</p>
+        </div>
+        <a href="/products" class="btn btn-outline btn-sm">View all products</a>
+      </header>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {products.map((p) => (
+          <article class="card p-6 reveal">
+            <span class="badge badge-seal mb-3">{p.data.category.replace('-', ' ')}</span>
+            <h3 class="heading-4 text-navy-900 mb-1">{p.data.name}</h3>
+            <p class="text-sm text-muted mb-4">{p.data.tagline}</p>
+            {p.data.sizes.length > 0 && (
+              <p class="text-sm font-semibold text-navy-900">
+                From R{Math.min(...p.data.sizes.map(s=>s.price)).toFixed(2)}
+              </p>
+            )}
+            <a href={`/products/${p.id.replace('.md','')}`} class="inline-block mt-4 text-sm font-semibold text-crimson-500 hover:text-crimson-600">Learn more →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <header class="max-w-2xl mb-12">
+        <h2 class="heading-2 text-navy-900 mb-3">How We Purify</h2>
+        <p class="body-lg text-muted">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle.</p>
+      </header>
+      <ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
+        {[
+          { n: '01', t: 'Source', d: 'Municipal water sourced and pre-filtered to remove sediment and chlorine.' },
+          { n: '02', t: 'Reverse Osmosis', d: 'High-pressure RO membranes remove dissolved solids, bacteria and impurities.' },
+          { n: '03', t: 'Mineral Balance', d: 'Controlled remineralisation for taste and pH balance.' },
+          { n: '04', t: 'UV & Ozone', d: 'Final disinfection for microbiological safety.' },
+          { n: '05', t: 'Bottling', d: 'Automated, hygienic filling and sealing in food-grade facilities.' },
+          { n: '06', t: 'Quality Check', d: 'Every batch tested before release. Certificates available on request.' },
+        ].map((s) => (
+          <li class="card p-6 reveal">
+            <div class="text-xs font-bold text-crimson-400 mb-2">{s.n}</div>
+            <h3 class="heading-4 text-navy-900 mb-2">{s.t}</h3>
+            <p class="text-sm text-muted">{s.d}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="mt-10">
+        <a href="/quality" class="btn btn-outline">Learn about our quality</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface-2">
+    <div class="container">
+      <header class="max-w-2xl mb-12">
+        <h2 class="heading-2 text-navy-900 mb-3">Our Services</h2>
+        <p class="body-lg text-muted">Complete hydration solutions for homes, businesses, and events of any scale.</p>
+      </header>
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {services.map((s) => (
+          <article class="card p-6 reveal">
+            <h3 class="heading-4 text-navy-900 mb-2">{s.data.name}</h3>
+            <p class="text-sm text-muted mb-4">{s.data.description}</p>
+            <ul class="text-sm text-muted space-y-1">
+              {s.data.features.slice(0,3).map((f) => <li>· {f}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+      <div class="mt-10">
+        <a href="/services" class="btn btn-outline">All services</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="card p-10 md:p-16 text-center bg-navy-900 text-white border-0">
+        <h2 class="heading-2 mb-4">Ready for premium hydration?</h2>
+        <p class="body-lg text-seal-200 mb-8 max-w-2xl mx-auto">
+          Custom solutions, volume pricing and dedicated support for your business. Get a quote today.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a href={waLink()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">Chat on WhatsApp</a>
+          <a href="/contact" class="btn btn-outline btn-lg border-white text-white hover:bg-white hover:text-navy-900">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

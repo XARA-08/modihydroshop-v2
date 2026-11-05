@@ -1,0 +1,29 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { site } from '@/data/site';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((post) => ({ params: { slug: post.id.replace('.md','') }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+<BaseLayout title={post.data.title} description={post.data.description} ogImage={post.data.image}>
+  <article class="section-sm">
+    <div class="container max-w-3xl">
+      <p class="caption mb-3">{post.data.pubDate.toLocaleDateString('en-ZA', { year:'numeric', month:'long', day:'numeric' })} · {post.data.author}</p>
+      <h1 class="heading-1 text-navy-900 mb-6">{post.data.title}</h1>
+      <div class="prose prose-navy max-w-none">
+        <Content />
+      </div>
+    </div>
+  </article>
+  <section class="section bg-surface-2 text-center">
+    <div class="container">
+      <a href="/blog" class="btn btn-outline">← Back to Insights</a>
+    </div>
+  </section>
+</BaseLayout>
