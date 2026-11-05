@@ -20,10 +20,13 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
     <div class="container max-w-3xl">
       <h2 class="heading-2 text-navy-900 mb-6">Our Story</h2>
       <p class="body text-muted mb-4">
-        We started with a simple idea: every business and household deserves access to genuinely pure water. Today we serve offices, hospitality venues, retail partners and events — with still water, sparkling water, natural juice, crystal ice and refill services.
+        Founded in {site.founded} by Lesiba Maleka, Modi Hydroshop Pty Ltd supplies purified still water, sparkling water, natural fruit juice, crystal ice cubes, and refill services. We use a Reverse Osmosis process to purify our water.
+      </p>
+      <p class="body text-muted mb-4">
+        <strong class="text-navy-900">Vision:</strong> To be the supplier of reputable and trustworthy products — to challenge the bigger suppliers so that we become top-of-mind products. The ultimate aim is becoming the top supplier of bottled water and allied products in the country.
       </p>
       <p class="body text-muted">
-        Our team combines water science, operations and distribution expertise to deliver consistent quality, on time, every time.
+        <strong class="text-navy-900">Mission:</strong> We are driven by an innovative, entrepreneurial and competitive spirit. Our motivation is to strive for success through innovation and the buy-in of our well-trained and motivated staff — supplying and partnering with our clients within their business to motivate the range, stockholding and sales/promotion of our products.
       </p>
     </div>
   </section>
@@ -48,7 +51,7 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
     <div class="container">
       <header class="mb-10">
         <h2 class="heading-2 text-navy-900 mb-3">Leadership</h2>
-        <p class="body text-muted">The people driving Modi Hydroshop's mission.</p>
+        <p class="body text-muted">We source, train, motivate and guide our staff from the local communities.</p>
       </header>
       <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {team.map((m) => (

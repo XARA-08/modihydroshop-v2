@@ -70,7 +70,12 @@ import { site, waLink } from '@/data/site';
                   <address class="text-muted not-italic">
                     {site.address.street}<br/>
                     {site.address.city}, {site.address.region} {site.address.postalCode}<br/>
-                    {site.address.country === 'ZA' ? 'South Africa' : site.address.country}
+                    South Africa
+                  </address>
+                  <address class="text-muted not-italic mt-3">
+                    {site.address2.street}<br/>
+                    {site.address2.city}, {site.address2.region} {site.address2.postalCode}<br/>
+                    South Africa
                   </address>
                   <p class="text-sm text-muted mt-1">Refill station open Mon–Sat</p>
                 </dd>
