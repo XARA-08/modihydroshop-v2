@@ -7,7 +7,6 @@ import icon from 'astro-icon';
 
 export default defineConfig({
   site: 'https://modihydroshop.pages.dev',
-  build: { inlineStylesheets: 'always' },
   vite: { plugins: [tailwindcss()] },
   integrations: [sitemap(), react(), icon()],
 });
