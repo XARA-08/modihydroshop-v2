@@ -142,24 +142,6 @@ body {
   html { scroll-behavior: auto; }
 }
 
-/* Dark mode (opt-in via .dark on html) */
-.dark {
-  --color-background: #0B1220;
-  --color-foreground: #E8EEF5;
-  --color-muted-foreground: #9BB3D4;
-  --color-border: #1F3354;
-  --color-surface: #111B2E;
-  --color-surface-2: #0F1828;
-  --color-line: #1F3354;
-}
-.dark body { background: var(--color-background); color: var(--color-foreground); }
-.dark .card { background: var(--color-surface); border-color: var(--color-line); }
-.dark .card-flat { background: var(--color-surface-2); border-color: var(--color-line); }
-.dark .btn-outline { color: #E8EEF5; border-color: #9BB3D4; }
-.dark .btn-outline:hover { background: #E8EEF5; color: var(--color-navy-900); }
-.dark .link { color: var(--color-seal-300); }
-.dark .link:hover { color: var(--color-crimson-300); }
-
 /* Reveal on scroll */
 .reveal { opacity: 0; transform: translateY(16px); transition: opacity 600ms ease, transform 600ms ease; }
 .reveal.in { opacity: 1; transform: none; }

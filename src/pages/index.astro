@@ -25,7 +25,7 @@ const structuredData = {
 };
 ---
 <BaseLayout title={site.name} description={site.description} structuredData={structuredData}>
-  <section class="relative overflow-hidden bg-surface-2 min-h-[520px]">
+  <section class="relative overflow-hidden bg-surface-2 min-h-[520px]" style="background-image: radial-gradient(circle at 85% 40%, rgba(253,110,136,0.12) 0%, transparent 50%), radial-gradient(circle at 15% 80%, rgba(7,45,89,0.08) 0%, transparent 50%);">
     <div class="container pt-20 pb-24 md:pt-28 md:pb-32">
       <div class="max-w-3xl">
         <span class="badge badge-seal mb-6">Purified since {site.founded}</span>
@@ -43,7 +43,6 @@ const structuredData = {
         </div>
       </div>
     </div>
-    <div class="absolute -right-24 top-1/2 -translate-y-1/2 w-[520px] h-[520px] rounded-full bg-seal-200/60 blur-3xl pointer-events-none" aria-hidden="true"></div>
   </section>
 
   <section class="border-y border-line bg-surface">

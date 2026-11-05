@@ -46,16 +46,6 @@ import { site, waLink } from '@/data/site';
 </header>
 
 <script is:inline>
-  const t = document.getElementById('theme-toggle');
-  if (t) {
-    t.addEventListener('click', () => {
-      const isDark = document.documentElement.classList.toggle('dark');
-      try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch (e) {}
-    });
-  }
-</script>
-
-<script is:inline>
   const btn = document.getElementById('mobile-menu-btn');
   const menu = document.getElementById('mobile-menu');
   if (btn && menu) {
