@@ -60,7 +60,7 @@ const team = (await getCollection('team')).sort((a,b)=>a.data.order-b.data.order
               {m.data.name.split(' ').map(n=>n[0]).join('').slice(0,2)}
             </div>
             <h3 class="heading-4 text-foreground">{m.data.name}</h3>
-            <p class="text-sm text-crimson-500 font-medium mb-2">{m.data.role}</p>
+            <p class="text-sm text-seal-600 font-medium mb-2">{m.data.role}</p>
             <p class="text-sm text-muted-foreground">{m.data.bio}</p>
           </article>
         ))}
