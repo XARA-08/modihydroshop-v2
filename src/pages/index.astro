@@ -171,7 +171,7 @@ const waQuote = (product?: string) =>
             <h2 class="heading-2 text-foreground mb-3">How we purify</h2>
             <p class="body-lg text-muted-foreground">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle. Every batch is tested before release.</p>
           </header>
-          <ol class="grid gap-4" role="list">
+          <ol class="grid gap-3 sm:grid-cols-2" role="list">
             {[
               { n: '01', t: 'Source', d: 'Municipal water sourced and pre-filtered to remove sediment and chlorine.' },
               { n: '02', t: 'Reverse Osmosis', d: 'High-pressure RO membranes remove dissolved solids, bacteria and impurities.' },
@@ -180,11 +180,11 @@ const waQuote = (product?: string) =>
               { n: '05', t: 'Bottling', d: 'Automated, hygienic filling and sealing in food-grade facilities.' },
               { n: '06', t: 'Quality Check', d: 'Every batch tested before release. Certificates of Analysis on request.' },
             ].map((s) => (
-              <li class="flex gap-4 reveal">
-                <div class="text-sm font-bold text-seal-600 w-8 shrink-0">{s.n}</div>
+              <li class="flex gap-3 reveal p-4 rounded-xl bg-surface-2 border border-line">
+                <div class="text-xs font-bold text-seal-600 w-6 shrink-0 pt-0.5">{s.n}</div>
                 <div>
-                  <h3 class="heading-4 text-foreground mb-1">{s.t}</h3>
-                  <p class="text-sm text-muted-foreground">{s.d}</p>
+                  <h3 class="text-sm font-semibold text-foreground mb-0.5">{s.t}</h3>
+                  <p class="text-xs text-muted-foreground leading-snug">{s.d}</p>
                 </div>
               </li>
             ))}
@@ -194,13 +194,17 @@ const waQuote = (product?: string) =>
           </div>
         </div>
         <div class="reveal">
-          <img
-            src="https://images.unsplash.com/photo-1678938989453-6e57d76d5a4a?w=800&q=75&auto=format&fit=crop"
-            alt="Reverse osmosis purification equipment in a water bottling facility - placeholder image"
-            class="w-full h-[420px] object-cover rounded-2xl shadow-card"
-            loading="lazy"
-            width="800" height="420"
-          />
+          <div class="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-card bg-gradient-to-br from-seal-50 via-white to-seal-100 border border-seal-200 flex flex-col items-center justify-center p-8 text-center">
+            <img src="/logo.svg" alt="Modi Hydroshop logo" class="w-28 h-28 object-contain mb-6" width="112" height="112" loading="lazy" />
+            <p class="heading-4 text-foreground mb-2">Purified in Modimolle</p>
+            <p class="text-sm text-muted-foreground max-w-xs">Reverse Osmosis · UV &amp; Ozone · Batch-tested. Certificates of Analysis on request.</p>
+            <div class="mt-6 flex flex-wrap justify-center gap-2">
+              <span class="badge badge-seal">RO</span>
+              <span class="badge badge-seal">UV</span>
+              <span class="badge badge-seal">Ozone</span>
+              <span class="badge badge-seal">Tested</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
