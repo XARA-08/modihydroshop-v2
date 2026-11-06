@@ -3,11 +3,13 @@ export const site = {
   legalName: 'Modi Hydroshop Pty Ltd',
   tagline: 'Pure Water. Pure Trust.',
   description:
-    'Premium water purification & bottling. Reverse Osmosis purified still water, sparkling water, natural fruit juice, crystal ice cubes, and refill services — serving businesses, hospitality and events across Limpopo and Gauteng.',
+    'Premium water purification & bottling. Reverse Osmosis purified still water, sparkling water, natural fruit juice, crystal ice cubes, refill services and prepared meals & catering — serving businesses, hospitality and events across Limpopo and Gauteng.',
   url: 'https://modihydroshop.pages.dev',
   locale: 'en-ZA',
-  phone: '+27 63 720 2467',
-  phoneDigits: '27637202467',
+  phone: '+27 68 789 5944',
+  phoneDigits: '27687895944',
+  phone2: '+27 63 720 2467',
+  phone2Digits: '27637202467',
   email: 'lesibabdmaleka@gmail.com',
   address: {
     street: '440 Sediba Street, Phagameng',
@@ -27,9 +29,11 @@ export const site = {
   founded: '2020',
   social: {
     facebook: '',
-    instagram: '',
-    linkedin: '',
-    whatsapp: 'https://wa.me/27637202467',
+    instagram: '',   // handle to be confirmed
+    tiktok: '',      // handle to be confirmed
+    youtube: '',     // channel to be confirmed
+    linkedin: '',    // profile to be confirmed
+    whatsapp: 'https://wa.me/27687895944',
   },
   nav: [
     { label: 'Home', href: '/' },

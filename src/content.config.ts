@@ -5,7 +5,7 @@ const products = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/products' }),
   schema: z.object({
     name: z.string(),
-    category: z.enum(['still-water', 'sparkling-water', 'juice', 'ice-cubes', 'refill']),
+    category: z.enum(['still-water', 'sparkling-water', 'juice', 'ice-cubes', 'refill', 'food']),
     tagline: z.string(),
     description: z.string(),
     image: z.string().optional(),

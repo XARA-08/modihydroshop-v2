@@ -7,11 +7,7 @@ const year = new Date().getFullYear();
     <div class="grid gap-10 md:grid-cols-4">
       <div class="md:col-span-1">
         <div class="flex items-center gap-2 font-display font-bold text-white text-lg mb-4">
-          <svg viewBox="0 0 32 32" class="w-8 h-8" aria-hidden="true">
-            <circle cx="16" cy="16" r="14" fill="#DBF2FC" stroke="#FFFFFF" stroke-width="2"/>
-            <path d="M16 8c-3 4-6 6-6 10a6 6 0 0 0 12 0c0-4-3-6-6-10z" fill="#FFFFFF"/>
-            <circle cx="16" cy="20" r="2" fill="#5FC8ED"/>
-          </svg>
+          <img src="/logo.svg" alt="Modi Hydroshop logo" class="w-8 h-8 object-contain" width="32" height="32" />
           <span>Modi Hydroshop</span>
         </div>
         <p class="text-sm text-seal-200 leading-relaxed">{site.tagline}</p>
@@ -49,7 +45,8 @@ const year = new Date().getFullYear();
       <div>
         <h3 class="font-semibold text-white mb-4">Contact</h3>
         <ul class="space-y-2 text-sm">
-          <li>{site.phone}</li>
+          <li>{site.phone} (primary)</li>
+          <li>{site.phone2} (secondary)</li>
           <li><a href={`mailto:${site.email}`} class="hover:text-white transition-colors">{site.email}</a></li>
           <li>{site.address.street}, {site.address.city}</li>
           <li>{site.address2.street}, {site.address2.city}</li>

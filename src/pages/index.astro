@@ -115,7 +115,7 @@ const waQuote = (product?: string) =>
         {products.map((p) => (
           <article class="card overflow-hidden reveal">
             <img
-              src="https://images.unsplash.com/photo-1530037335614-e68828dcf258?w=600&q=75&auto=format&fit=crop"
+              src={`https://picsum.photos/seed/${encodeURIComponent(p.id)}/600/176`}
               alt={`${p.data.name} - placeholder image, replace with real product photo`}
               class="w-full h-44 object-cover"
               loading="lazy"
@@ -125,10 +125,12 @@ const waQuote = (product?: string) =>
               <span class="badge badge-seal mb-3">{p.data.category.replace('-', ' ')}</span>
               <h3 class="heading-4 text-foreground mb-1">{p.data.name}</h3>
               <p class="text-sm text-muted-foreground mb-4">{p.data.tagline}</p>
-              {p.data.sizes.length > 0 && (
+              {p.data.sizes.length > 0 ? (
                 <p class="text-sm font-semibold text-foreground mb-4">
                   From R{Math.min(...p.data.sizes.map(s=>s.price)).toFixed(2)}
                 </p>
+              ) : (
+                <p class="text-sm font-semibold text-foreground mb-4">Quote on request</p>
               )}
               <div class="flex items-center gap-3">
                 <a href={waQuote(p.data.name)} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">
