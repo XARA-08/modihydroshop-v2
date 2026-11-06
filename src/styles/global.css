@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* DaisyUI plugin */
+@plugin "daisyui" {
+  themes: false;
+}
+
 /* ===== Brand tokens (Modi Hydroshop v2) ===== */
 @theme {
   /* Seal Blue — primary surface / trust (ice blue tints) */
