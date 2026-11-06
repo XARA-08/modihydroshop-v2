@@ -260,6 +260,30 @@ const waQuote = (product?: string) =>
     </div>
   </section>
 
+  <!--
+    TESTIMONIALS / CLIENT LOGOS STRIP — PLACEHOLDER (hidden until data arrives)
+    To enable: collect client names, logos (with permission) and short quotes from Mr. Lesiba,
+    then add a 'testimonials' content collection in src/content.config.ts and render here.
+    Markup template:
+    <section class="section bg-surface">
+      <div class="container">
+        <header class="max-w-2xl mb-10">
+          <h2 class="heading-2 text-foreground mb-3">Trusted by businesses across Limpopo &amp; Gauteng</h2>
+          <p class="body-lg text-muted-foreground">Real partners, real results.</p>
+        </header>
+        <div class="grid gap-6 md:grid-cols-3">
+          {testimonials.map((t) => (
+            <article class="card p-6">
+              <p class="text-sm text-muted-foreground mb-4">"{t.quote}"</p>
+              <div class="font-semibold text-foreground">{t.name}</div>
+              <div class="text-xs text-muted-foreground">{t.role}</div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  -->
+
   <section class="section bg-navy-900 text-white">
     <div class="container max-w-3xl text-center">
       <h2 class="heading-2 mb-4">Ready for premium hydration?</h2>
