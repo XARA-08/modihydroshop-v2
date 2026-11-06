@@ -41,119 +41,126 @@ const waQuote = (product?: string) =>
 ---
 
 <BaseLayout title={`${site.name} | Pure Water Bottling & Purification — Limpopo & Gauteng`} description={site.description} structuredData={structuredData}>
-  <section class="hero-mesh relative min-h-[680px] md:min-h-[760px] flex items-center overflow-hidden bg-navy-900 text-white">
+
+  <section class="relative min-h-[88vh] md:min-h-[92vh] flex items-center overflow-hidden bg-navy-900 text-white">
     <div class="absolute inset-0">
-      <img
-        src="https://images.unsplash.com/photo-1536939459926-301728717817?w=1600&q=60&auto=format&fit=crop"
-        alt="Rows of purified bottled water on a production line - placeholder image, replace with real Modi Hydroshop facility photo"
-        class="w-full h-full object-cover opacity-25"
-        loading="eager"
-        fetchpriority="high"
-        decoding="async"
-        width="1600" height="900"
-      />
-      <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/90 to-navy-900/50"></div>
-      <div class="absolute inset-0 bg-gradient-to-t from-navy-900/80 via-transparent to-transparent"></div>
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-seal-900/40"></div>
+      <div class="absolute inset-0 opacity-40" style="background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(95,200,237,0.35), transparent 70%);"></div>
+      <div class="absolute inset-0 opacity-20" style="background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(47,181,229,0.4), transparent 60%);"></div>
+      <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 64px 64px;"></div>
     </div>
 
-    <div class="container relative z-10 py-24 md:py-32">
+    <div class="absolute right-[-5%] top-1/2 -translate-y-1/2 hidden lg:block opacity-10 pointer-events-none select-none">
+      <img src="/logo.svg" alt="" class="w-[520px] h-[520px] object-contain" aria-hidden="true" />
+    </div>
+
+    <div class="container relative z-10 py-20 md:py-28">
       <div class="max-w-3xl">
-        <span class="badge badge-seal mb-6 inline-flex items-center gap-2">
+        <div class="reveal inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-sm text-seal-100 mb-8">
           <span class="w-2 h-2 rounded-full bg-seal-400 animate-pulse" aria-hidden="true"></span>
-          Established {site.founded} · Modimolle, Limpopo
-        </span>
-        <h1 class="heading-1 mb-6 leading-[1.02] tracking-tight">
-          Reverse Osmosis purified water,<br class="hidden md:block" />
-          bottled in Modimolle,<br class="hidden md:block" />
-          delivered across Limpopo &amp; Gauteng.
+          <span class="font-medium">Established {site.founded} · Modimolle, Limpopo</span>
+        </div>
+
+        <h1 class="heading-1 mb-6 leading-[0.95] tracking-tighter">
+          <span class="block text-white">Pure water,</span>
+          <span class="block text-seal-300">bottled with care.</span>
         </h1>
-        <p class="body-lg text-seal-100 max-w-2xl mb-10 leading-relaxed">
+
+        <p class="body-lg text-seal-100/90 max-w-xl mb-10 leading-relaxed">
           {site.description}
         </p>
-        <div class="flex flex-wrap gap-4">
-          <a href={waQuote()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg shadow-lg hover:shadow-xl transition-shadow">
-            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+
+        <div class="flex flex-wrap gap-4 mb-12">
+          <a href={waQuote()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg shadow-lift hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
             Get a quote on WhatsApp
           </a>
-          <a href="/products" class="btn btn-lg border border-white/30 text-white hover:bg-white hover:text-navy-900 backdrop-blur-sm">
-            View products
+          <a href="/products" class="btn btn-lg border border-white/25 text-white hover:bg-white hover:text-navy-900 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5">
+            Explore products
           </a>
         </div>
-        <div class="mt-8 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-seal-200">
-          <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-seal-400" aria-hidden="true"></span>B-BBEE Level 1</span>
-          <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-seal-400" aria-hidden="true"></span>CIPC registered</span>
-          <span class="inline-flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-seal-400" aria-hidden="true"></span>Certificates of Analysis on request</span>
+
+        <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-seal-200/80 pt-6 border-t border-white/10">
+          <span class="inline-flex items-center gap-2">B-BBEE Level 1</span>
+          <span class="inline-flex items-center gap-2">CIPC registered</span>
+          <span class="inline-flex items-center gap-2">RO purified & tested</span>
+          <span class="inline-flex items-center gap-2">Limpopo & Gauteng</span>
         </div>
       </div>
+    </div>
+
+    <div class="absolute bottom-0 inset-x-0 pointer-events-none">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto" preserveAspectRatio="none">
+        <path d="M0 80L60 72C120 64 240 48 360 40C480 32 600 32 720 36C840 40 960 48 1080 52C1200 56 1320 56 1380 56L1440 56V80H0Z" fill="white"/>
+      </svg>
     </div>
   </section>
 
-  <section class="border-y border-line bg-surface">
-    <div class="container py-8 grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
-      <div class="flex flex-col items-center gap-2">
-        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-        <div class="heading-4 text-foreground">B-BBEE</div>
-        <div class="caption">Level 1 contributor</div>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
-        <div class="heading-4 text-foreground">CIPC</div>
-        <div class="caption">Registered company</div>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
-        <div class="heading-4 text-foreground">RO</div>
-        <div class="caption">Multi-stage purification</div>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-        <div class="heading-4 text-foreground">2</div>
-        <div class="caption">Provinces served</div>
-      </div>
-      <div class="flex flex-col items-center gap-2">
-        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
-        <div class="heading-4 text-foreground">{site.founded}</div>
-        <div class="caption">Founded</div>
+  <section class="bg-surface border-b border-line">
+    <div class="container py-6">
+      <div class="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-8">
+        {[
+          { n: 'B-BBEE', l: 'Level 1 contributor', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+          { n: 'CIPC', l: 'Registered company', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
+          { n: 'RO', l: 'Multi-stage purification', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z' },
+          { n: '2', l: 'Provinces served', icon: 'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z M15 11a3 3 0 11-6 0 3 3 0 016 0z' },
+          { n: site.founded, l: 'Founded in Modimolle', icon: 'M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z' },
+        ].map((s) => (
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-seal-100 flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={s.icon}/></svg>
+            </div>
+            <div>
+              <div class="heading-4 text-foreground leading-none">{s.n}</div>
+              <div class="caption text-xs">{s.l}</div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
   <section class="section bg-surface-2">
     <div class="container">
-      <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-10">
-        <div>
-          <h2 class="heading-2 text-foreground mb-2">Featured products</h2>
+      <header class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+        <div class="max-w-xl">
+          <span class="badge badge-seal mb-3">Our range</span>
+          <h2 class="heading-2 text-foreground mb-3">Featured products</h2>
           <p class="body text-muted-foreground">Our most popular hydration solutions for homes, offices and events.</p>
         </div>
-        <a href="/products" class="btn btn-outline btn-sm">View all products</a>
+        <a href="/products" class="btn btn-outline btn-sm self-start md:self-end">View all products →</a>
       </header>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 reveal-stagger">
         {products.map((p) => (
-          <article class="card overflow-hidden reveal">
-            <img
-              src={`https://picsum.photos/seed/${encodeURIComponent(p.id)}/600/176`}
-              alt={`${p.data.name} - placeholder image, replace with real product photo`}
-              class="w-full h-44 object-cover"
-              loading="lazy"
-              width="600" height="176"
-            />
+          <article class="reveal-child group bg-white rounded-2xl overflow-hidden border border-line shadow-soft hover:shadow-lift hover:-translate-y-1 transition-all duration-300">
+            <div class="relative overflow-hidden">
+              <img
+                src={`https://picsum.photos/seed/${encodeURIComponent(p.id)}/600/240`}
+                alt={`${p.data.name} - placeholder image, replace with real product photo`}
+                class="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                loading="lazy"
+                width="600" height="240"
+              />
+              <div class="absolute top-3 left-3">
+                <span class="badge badge-seal backdrop-blur-md bg-white/90">{p.data.category.replace('-', ' ')}</span>
+              </div>
+            </div>
             <div class="p-6">
-              <span class="badge badge-seal mb-3">{p.data.category.replace('-', ' ')}</span>
-              <h3 class="heading-4 text-foreground mb-1">{p.data.name}</h3>
-              <p class="text-sm text-muted-foreground mb-4">{p.data.tagline}</p>
+              <h3 class="heading-4 text-foreground mb-1 group-hover:text-seal-600 transition-colors">{p.data.name}</h3>
+              <p class="text-sm text-muted-foreground mb-4 line-clamp-2">{p.data.tagline}</p>
               {p.data.sizes.length > 0 ? (
-                <p class="text-sm font-semibold text-foreground mb-4">
-                  From R{Math.min(...p.data.sizes.map(s=>s.price)).toFixed(2)}
+                <p class="text-lg font-bold text-foreground mb-5">
+                  From <span class="text-seal-600">R{Math.min(...p.data.sizes.map(s=>s.price)).toFixed(2)}</span>
                 </p>
               ) : (
-                <p class="text-sm font-semibold text-foreground mb-4">Quote on request</p>
+                <p class="text-lg font-bold text-foreground mb-5">Quote on request</p>
               )}
               <div class="flex items-center gap-3">
-                <a href={waQuote(p.data.name)} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm">
+                <a href={waQuote(p.data.name)} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-sm flex-1 justify-center">
                   Get a quote
                 </a>
-                <a href={`/products/${p.id.replace('.md','')}`} class="text-sm font-semibold text-foreground hover:text-seal-600">
-                  Details →
+                <a href={`/products/${p.id.replace('.md','')}`} class="btn btn-ghost btn-sm">
+                  Details
                 </a>
               </div>
             </div>
@@ -165,13 +172,13 @@ const waQuote = (product?: string) =>
 
   <section class="section">
     <div class="container">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <header class="mb-8">
-            <h2 class="heading-2 text-foreground mb-3">How we purify</h2>
-            <p class="body-lg text-muted-foreground">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle. Every batch is tested before release.</p>
-          </header>
-          <ol class="grid gap-3 sm:grid-cols-2" role="list">
+          <span class="badge badge-seal mb-4">Our process</span>
+          <h2 class="heading-2 text-foreground mb-4">How we purify</h2>
+          <p class="body-lg text-muted-foreground mb-10">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle. Every batch is tested before release.</p>
+
+          <ol class="grid gap-3 sm:grid-cols-2 reveal-stagger" role="list">
             {[
               { n: '01', t: 'Source', d: 'Municipal water sourced and pre-filtered to remove sediment and chlorine.' },
               { n: '02', t: 'Reverse Osmosis', d: 'High-pressure RO membranes remove dissolved solids, bacteria and impurities.' },
@@ -180,7 +187,7 @@ const waQuote = (product?: string) =>
               { n: '05', t: 'Bottling', d: 'Automated, hygienic filling and sealing in food-grade facilities.' },
               { n: '06', t: 'Quality Check', d: 'Every batch tested before release. Certificates of Analysis on request.' },
             ].map((s) => (
-              <li class="flex gap-3 reveal p-4 rounded-xl bg-surface-2 border border-line">
+              <li class="reveal-child flex gap-3 p-4 rounded-xl bg-surface-2 border border-line hover:border-seal-300 transition-colors">
                 <div class="text-xs font-bold text-seal-600 w-6 shrink-0 pt-0.5">{s.n}</div>
                 <div>
                   <h3 class="text-sm font-semibold text-foreground mb-0.5">{s.t}</h3>
@@ -189,16 +196,19 @@ const waQuote = (product?: string) =>
               </li>
             ))}
           </ol>
-          <div class="mt-8">
-            <a href="/quality" class="btn btn-outline">Learn about our quality</a>
+
+          <div class="mt-10">
+            <a href="/quality" class="btn btn-outline">Learn about our quality →</a>
           </div>
         </div>
+
         <div class="reveal">
-          <div class="relative w-full h-[420px] rounded-2xl overflow-hidden shadow-card bg-gradient-to-br from-seal-50 via-white to-seal-100 border border-seal-200 flex flex-col items-center justify-center p-8 text-center">
-            <img src="/logo.svg" alt="Modi Hydroshop logo" class="w-28 h-28 object-contain mb-6" width="112" height="112" loading="lazy" />
-            <p class="heading-4 text-foreground mb-2">Purified in Modimolle</p>
-            <p class="text-sm text-muted-foreground max-w-xs">Reverse Osmosis · UV &amp; Ozone · Batch-tested. Certificates of Analysis on request.</p>
-            <div class="mt-6 flex flex-wrap justify-center gap-2">
+          <div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-lift bg-gradient-to-br from-seal-50 via-white to-seal-100 border border-seal-200 flex flex-col items-center justify-center p-10 text-center">
+            <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 20%, rgba(95,200,237,0.4), transparent 60%);"></div>
+            <img src="/logo.svg" alt="Modi Hydroshop logo" class="relative w-32 h-32 object-contain mb-6 drop-shadow-lg" width="128" height="128" loading="lazy" />
+            <p class="relative heading-3 text-foreground mb-2">Purified in Modimolle</p>
+            <p class="relative text-sm text-muted-foreground max-w-xs">Reverse Osmosis · UV &amp; Ozone · Batch-tested. Certificates of Analysis on request.</p>
+            <div class="relative mt-6 flex flex-wrap justify-center gap-2">
               <span class="badge badge-seal">RO</span>
               <span class="badge badge-seal">UV</span>
               <span class="badge badge-seal">Ozone</span>
@@ -212,115 +222,112 @@ const waQuote = (product?: string) =>
 
   <section class="section bg-surface-2">
     <div class="container">
-      <header class="max-w-2xl mb-10">
+      <header class="max-w-2xl mb-12">
+        <span class="badge badge-seal mb-3">What we do</span>
         <h2 class="heading-2 text-foreground mb-3">Our services</h2>
         <p class="body-lg text-muted-foreground">Complete hydration solutions for homes, businesses, and events of any scale.</p>
       </header>
-      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 reveal-stagger">
         {services.map((s) => (
-          <article class="card p-6 reveal">
-            <h3 class="heading-4 text-foreground mb-2">{s.data.name}</h3>
-            <p class="text-sm text-muted-foreground mb-4">{s.data.description}</p>
-            <ul class="text-sm text-muted-foreground space-y-1">
-              {s.data.features.slice(0,3).map((f) => <li>· {f}</li>)}
+          <article class="reveal-child group bg-white rounded-2xl p-7 border border-line shadow-soft hover:shadow-lift hover:-translate-y-1 transition-all duration-300">
+            <div class="w-12 h-12 rounded-xl bg-seal-100 flex items-center justify-center mb-5 group-hover:bg-seal-200 transition-colors">
+              <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+            </div>
+            <h3 class="heading-4 text-foreground mb-2 group-hover:text-seal-600 transition-colors">{s.data.name}</h3>
+            <p class="text-sm text-muted-foreground mb-5 leading-relaxed">{s.data.description}</p>
+            <ul class="text-sm text-muted-foreground space-y-2">
+              {s.data.features.slice(0,3).map((f) => (
+                <li class="flex items-start gap-2">
+                  <svg class="w-4 h-4 text-seal-500 mt-0.5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                  <span>{f}</span>
+                </li>
+              ))}
             </ul>
           </article>
         ))}
       </div>
-      <div class="mt-10">
-        <a href="/services" class="btn btn-outline">All services</a>
+
+      <div class="mt-12 text-center">
+        <a href="/services" class="btn btn-outline">Explore all services →</a>
       </div>
     </div>
   </section>
 
   <section class="section">
     <div class="container">
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-12">
-        <div>
-          <h2 class="heading-2 text-foreground mb-4">Built in Modimolle, serving our communities</h2>
-          <p class="body text-muted-foreground mb-4">
+      <div class="grid md:grid-cols-2 gap-16 items-center mb-16">
+        <div class="reveal">
+          <span class="badge badge-seal mb-4">Our story</span>
+          <h2 class="heading-2 text-foreground mb-5">Built in Modimolle,<br/>serving our communities</h2>
+          <p class="body text-muted-foreground mb-4 leading-relaxed">
             Founded in {site.founded} by Lesiba Maleka, Modi Hydroshop Pty Ltd purifies and bottles water in Modimolle, Limpopo, with a second base in Soweto, Gauteng. We source, train, motivate and guide our staff from the local communities we serve.
           </p>
-          <p class="body text-muted-foreground mb-6">
+          <p class="body text-muted-foreground mb-8 leading-relaxed">
             <strong class="text-foreground">Vision:</strong> To become the top supplier of bottled water and allied products in the country — a reputable, trustworthy alternative to the bigger suppliers.
           </p>
-          <a href="/about" class="btn btn-outline">Our story</a>
+          <a href="/about" class="btn btn-outline">Read our story →</a>
         </div>
-        <div class="grid grid-cols-2 gap-4 reveal">
+
+        <div class="grid grid-cols-2 gap-4 reveal-stagger">
           {[
-            { t: 'Integrity', d: 'We conduct our business ethically and honestly.' },
-            { t: 'Quality', d: 'Quality products with the best value for money.' },
-            { t: 'Safety', d: 'Zero harm to people and the environment.' },
-            { t: 'Respect', d: 'We value every individual and their differences.' },
+            { t: 'Integrity', d: 'We conduct our business ethically and honestly.', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z' },
+            { t: 'Quality', d: 'Quality products with the best value for money.', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z' },
+            { t: 'Safety', d: 'Zero harm to people and the environment.', icon: 'M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z' },
+            { t: 'Respect', d: 'We value every individual and their differences.', icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z' },
           ].map((v) => (
-            <div class="card p-5">
+            <div class="reveal-child bg-white rounded-2xl p-5 border border-line shadow-soft hover:shadow-lift hover:-translate-y-0.5 transition-all duration-300">
+              <div class="w-9 h-9 rounded-lg bg-seal-100 flex items-center justify-center mb-3">
+                <svg class="w-5 h-5 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={v.icon}/></svg>
+              </div>
               <h3 class="heading-4 text-foreground mb-1">{v.t}</h3>
-              <p class="text-xs text-muted-foreground">{v.d}</p>
+              <p class="text-xs text-muted-foreground leading-snug">{v.d}</p>
             </div>
           ))}
         </div>
       </div>
 
-      <div class="rounded-2xl p-8 md:p-10 bg-seal-50 border border-seal-200">
-        <div class="grid md:grid-cols-3 gap-6">
+      <div class="rounded-3xl p-8 md:p-12 bg-gradient-to-br from-seal-50 to-seal-100 border border-seal-200">
+        <div class="grid md:grid-cols-3 gap-8">
           <div>
             <h3 class="heading-4 text-foreground mb-2">Water stewardship</h3>
-            <p class="text-sm text-muted-foreground">Responsible sourcing and efficient RO processing to minimise waste per litre bottled.</p>
+            <p class="text-sm text-muted-foreground leading-relaxed">Responsible sourcing and efficient RO processing to minimise waste per litre bottled.</p>
           </div>
           <div>
             <h3 class="heading-4 text-foreground mb-2">Local jobs</h3>
-            <p class="text-sm text-muted-foreground">We source, train and grow staff from Modimolle and Soweto communities.</p>
+            <p class="text-sm text-muted-foreground leading-relaxed">We source, train and grow staff from Modimolle and Soweto communities.</p>
           </div>
           <div>
             <h3 class="heading-4 text-foreground mb-2">B-BBEE Level 1</h3>
-            <p class="text-sm text-muted-foreground">Verified contributor status, supporting procurement and enterprise development.</p>
+            <p class="text-sm text-muted-foreground leading-relaxed">Verified contributor status, supporting procurement and enterprise development.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!--
-    TESTIMONIALS / CLIENT LOGOS STRIP — PLACEHOLDER (hidden until data arrives)
-    To enable: collect client names, logos (with permission) and short quotes from Mr. Lesiba,
-    then add a 'testimonials' content collection in src/content.config.ts and render here.
-    Markup template:
-    <section class="section bg-surface">
-      <div class="container">
-        <header class="max-w-2xl mb-10">
-          <h2 class="heading-2 text-foreground mb-3">Trusted by businesses across Limpopo &amp; Gauteng</h2>
-          <p class="body-lg text-muted-foreground">Real partners, real results.</p>
-        </header>
-        <div class="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <article class="card p-6">
-              <p class="text-sm text-muted-foreground mb-4">"{t.quote}"</p>
-              <div class="font-semibold text-foreground">{t.name}</div>
-              <div class="text-xs text-muted-foreground">{t.role}</div>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  -->
-
-  <section class="section bg-navy-900 text-white">
-    <div class="container max-w-3xl text-center">
-      <h2 class="heading-2 mb-4">Ready for premium hydration?</h2>
-      <p class="body-lg text-seal-200 mb-8">
+  <section class="relative overflow-hidden bg-navy-900 text-white">
+    <div class="absolute inset-0">
+      <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-seal-900/30"></div>
+      <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(95,200,237,0.3), transparent 70%);"></div>
+    </div>
+    <div class="container relative z-10 py-24 md:py-32 text-center max-w-3xl mx-auto">
+      <h2 class="heading-2 mb-5 text-white">Ready for premium hydration?</h2>
+      <p class="body-lg text-seal-200 mb-10 max-w-2xl mx-auto">
         Custom solutions, volume pricing and dedicated support for your business, hospitality venue or event. Get a quote today.
       </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-        <a href={waQuote()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg">
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href={waQuote()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg shadow-lift hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
           Get a quote on WhatsApp
         </a>
-        <a href="mailto:lesibabdmaleka@gmail.com?subject=Quote%20request%20-%20Modi%20Hydroshop" class="btn btn-lg border border-white/40 text-white hover:bg-white hover:text-navy-900">
+        <a href="mailto:lesibabdmaleka@gmail.com?subject=Quote%20request%20-%20Modi%20Hydroshop" class="btn btn-lg border border-white/30 text-white hover:bg-white hover:text-navy-900 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5">
           Email us
         </a>
       </div>
-      <p class="caption text-seal-100 mt-6">
+      <p class="caption text-seal-100/70 mt-8">
         Or call {site.phone} · Mon–Fri 8am–5pm, Sat 8am–1pm
       </p>
     </div>
   </section>
+
 </BaseLayout>

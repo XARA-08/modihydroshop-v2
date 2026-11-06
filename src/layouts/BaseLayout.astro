@@ -8,6 +8,11 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 import '@fontsource/inter/700.css';
+import '@fontsource/sora/400.css';
+import '@fontsource/sora/500.css';
+import '@fontsource/sora/600.css';
+import '@fontsource/sora/700.css';
+import '@fontsource/sora/800.css';
 import '../styles/global.css';
 
 interface Props {
@@ -129,17 +134,26 @@ const canonicalUrl = canonical || new URL(Astro.url.pathname, site.url).href;
       function initLenis() {
         if (lenisReady) return;
         lenisReady = true;
-        lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+        lenis = new Lenis({ duration: 0.9, smoothWheel: true, wheelMultiplier: 1.1 });
         lenis.on('scroll', ScrollTrigger.update);
         gsap.ticker.add((time) => lenis.raf(time * 1000));
         gsap.ticker.lagSmoothing(0);
       }
       function animateReveals() {
-        document.querySelectorAll('.reveal:not(.revealed)').forEach((el) => {
+        // Staggered reveal for grid children
+        document.querySelectorAll('.reveal-stagger').forEach((parent) => {
+          const children = parent.querySelectorAll('.reveal-child');
+          if (!children.length) return;
+          gsap.fromTo(children, { opacity: 0, y: 48, scale: 0.96 }, {
+            opacity: 1, y: 0, scale: 1, duration: 0.8, ease: 'power3.out', stagger: 0.12,
+            scrollTrigger: { trigger: parent, start: 'top 85%', once: true },
+          });
+        });
+        document.querySelectorAll('.reveal:not(.revealed):not(.reveal-child)').forEach((el) => {
           el.classList.add('revealed');
-          gsap.fromTo(el, { opacity: 0, y: 20 }, {
-            opacity: 1, y: 0, duration: 0.7, ease: 'power2.out',
-            scrollTrigger: { trigger: el, start: 'top 88%', once: true },
+          gsap.fromTo(el, { opacity: 0, y: 48, scale: 0.98 }, {
+            opacity: 1, y: 0, scale: 1, duration: 0.9, ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 85%', once: true },
           });
         });
         ScrollTrigger.refresh();
