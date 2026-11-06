@@ -89,22 +89,31 @@ const waQuote = (product?: string) =>
   </section>
 
   <section class="border-y border-line bg-surface">
-    <div class="container py-6 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-      <div>
+    <div class="container py-8 grid grid-cols-2 md:grid-cols-5 gap-6 text-center">
+      <div class="flex flex-col items-center gap-2">
+        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         <div class="heading-4 text-foreground">B-BBEE</div>
         <div class="caption">Level 1 contributor</div>
       </div>
-      <div>
+      <div class="flex flex-col items-center gap-2">
+        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
         <div class="heading-4 text-foreground">CIPC</div>
         <div class="caption">Registered company</div>
       </div>
-      <div>
+      <div class="flex flex-col items-center gap-2">
+        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
         <div class="heading-4 text-foreground">RO</div>
         <div class="caption">Multi-stage purification</div>
       </div>
-      <div>
+      <div class="flex flex-col items-center gap-2">
+        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
         <div class="heading-4 text-foreground">2</div>
         <div class="caption">Provinces served</div>
+      </div>
+      <div class="flex flex-col items-center gap-2">
+        <svg class="w-6 h-6 text-seal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+        <div class="heading-4 text-foreground">{site.founded}</div>
+        <div class="caption">Founded</div>
       </div>
     </div>
   </section>
