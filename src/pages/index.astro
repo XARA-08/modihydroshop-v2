@@ -3,6 +3,20 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { site, waLink } from '@/data/site';
 import { Card, Stats, Stat, Badge, Button } from '@ppreeper/neokit';
+import Silk from '../components/wamambo/Silk';
+import { MorphHeadline } from '../components/wamambo/MorphHeadline';
+import SpecularButton from '../components/wamambo/SpecularButton';
+import { GradientHeading } from 'astro-component-kit/typography';
+import { ShimmerButton } from 'astro-component-kit/buttons';
+import ProcessPath from '../components/wamambo/ProcessPath';
+import CursorGrid from '../components/wamambo/CursorGrid';
+import Strands from '../components/wamambo/Strands';
+import ValueProps from '../components/wamambo/ValueProps';
+import TrustStrip from '../components/wamambo/TrustStrip';
+import BorderGlow from '../components/wamambo/BorderGlow';
+import SocialCard from '../components/wamambo/SocialCard';
+import ReadinessBand from '../components/wamambo/ReadinessBand';
+import { TrustBadges } from 'astro-component-kit/ecommerce';
 
 const products = (await getCollection('products')).filter(p=>p.data.featured).sort((a,b)=>a.data.order-b.data.order);
 const services = (await getCollection('services')).sort((a,b)=>a.data.order-b.data.order);
@@ -43,43 +57,34 @@ const waQuote = (product?: string) =>
 
 <BaseLayout title={`${site.name} | Pure Water Bottling & Purification — Limpopo & Gauteng`} description={site.description} structuredData={structuredData}>
 
-  <section class="relative min-h-[88vh] md:min-h-[92vh] flex items-center overflow-hidden bg-navy-900 text-white">
+  <section class="relative min-h-screen flex flex-col justify-center overflow-hidden bg-navy-900 text-white">
     <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-seal-900/40"></div>
-      <div class="absolute inset-0 opacity-40" style="background: radial-gradient(ellipse 80% 60% at 70% 40%, rgba(95,200,237,0.35), transparent 70%);"></div>
-      <div class="absolute inset-0 opacity-20" style="background: radial-gradient(ellipse 60% 50% at 20% 80%, rgba(47,181,229,0.4), transparent 60%);"></div>
-      <div class="absolute inset-0 opacity-[0.04]" style="background-image: linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px); background-size: 64px 64px;"></div>
-    </div>
+          <Silk client:load speed={5} scale={1} color="#1B3A6B" noiseIntensity={1.1} rotation={0} />
+          <CursorGrid client:load color="#2D7DD2" cellSize={60} radius={120} maxOpacity={0.3} gridOpacity={0.05} />
+          <div class="absolute inset-0 bg-navy-950/25" />
+          <div class="absolute inset-0 bg-gradient-to-b from-navy-950/20 via-transparent to-navy-950/80" />
+        </div>
 
-    <div class="absolute right-[-5%] top-1/2 -translate-y-1/2 hidden lg:block opacity-10 pointer-events-none select-none">
-      <img src="/logo.svg" alt="" class="w-[520px] h-[520px] object-contain" aria-hidden="true" />
-    </div>
-
-    <div class="container relative z-10 py-20 md:py-28">
-      <div class="max-w-3xl">
+    <div class="relative z-10 mx-auto w-full max-w-7xl px-5 pt-28 md:px-8 md:pt-36">
+      <div class="mx-auto flex max-w-4xl flex-col items-center text-center">
         <div class="reveal inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-sm text-seal-100 mb-8">
           <span class="w-2 h-2 rounded-full bg-seal-400 animate-pulse" aria-hidden="true"></span>
           <span class="font-medium">Established {site.founded} · Modimolle, Limpopo</span>
         </div>
-
-        <h1 class="heading-1 mb-6 leading-[0.95] tracking-tighter">
-          <span class="block text-white">Pure water,</span>
-          <span class="block text-seal-300">bottled with care.</span>
-        </h1>
-
-        <p class="body-lg text-seal-100/90 max-w-xl mb-10 leading-relaxed">
+        <MorphHeadline client:load as="h1" className="mb-8 font-bold leading-[1.04] tracking-tight text-white min-h-[1.2em]" style={{ fontSize: 'clamp(2.6rem, 6vw, 5.25rem)' }}>
+          Pure water,<br />bottled with care.
+        </MorphHeadline>
+        <p class="max-w-2xl text-body-lg leading-relaxed text-seal-100/90 mb-10">
           {site.description}
         </p>
-
         <div class="flex flex-wrap gap-4 mb-12">
-          <a href={waQuote()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg shadow-lift hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
+          <SpecularButton client:load href={waQuote()} target="_blank" rel="noopener noreferrer" size="lg" baseColor="#2D7DD2" lineColor="#7DD3FC" textColor="#FFFFFF">
             Get a quote on WhatsApp
-          </a>
+          </SpecularButton>
           <a href="/products" class="btn btn-lg border border-white/25 text-white hover:bg-white hover:text-navy-900 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5">
             Explore products
           </a>
         </div>
-
         <div class="flex flex-wrap items-center gap-x-8 gap-y-3 text-sm text-seal-200/80 pt-6 border-t border-white/10">
           <span class="inline-flex items-center gap-2">B-BBEE Level 1</span>
           <span class="inline-flex items-center gap-2">CIPC registered</span>
@@ -98,13 +103,12 @@ const waQuote = (product?: string) =>
 
   <section class="bg-surface border-b border-line">
     <div class="container py-6">
-      <Stats classes="bg-transparent shadow-none w-full">
-        <Stat title="B-BBEE" desc="Level 1 contributor" classes="place-items-center" />
-        <Stat title="CIPC" desc="Registered company" classes="place-items-center" />
-        <Stat title="RO" desc="Multi-stage purification" classes="place-items-center" />
-        <Stat title="2" desc="Provinces served" classes="place-items-center" />
-        <Stat title={site.founded} desc="Founded in Modimolle" classes="place-items-center" />
-      </Stats>
+      <TrustBadges items={[
+        { icon: 'lock', title: 'B-BBEE Level 1', text: 'Contributor status' },
+        { icon: 'chat', title: 'CIPC Registered', text: 'Registered company' },
+        { icon: 'return', title: 'RO Purified', text: 'Multi-stage filtration' },
+        { icon: 'truck', title: '2 Provinces', text: 'Limpopo & Gauteng' },
+      ]} variant="inline" size="md" />
     </div>
   </section>
 
@@ -152,55 +156,19 @@ const waQuote = (product?: string) =>
     </div>
   </section>
 
-  <section class="section">
-    <div class="container">
-      <div class="grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <span class="badge badge-seal mb-4">Our process</span>
-          <h2 class="heading-2 text-foreground mb-4">How we purify</h2>
-          <p class="body-lg text-muted-foreground mb-10">A rigorous, multi-stage Reverse Osmosis process — from source to sealed bottle. Every batch is tested before release.</p>
-
-          <ol class="grid gap-3 sm:grid-cols-2 reveal-stagger" role="list">
-            {[
-              { n: '01', t: 'Source', d: 'Municipal water sourced and pre-filtered to remove sediment and chlorine.' },
-              { n: '02', t: 'Reverse Osmosis', d: 'High-pressure RO membranes remove dissolved solids, bacteria and impurities.' },
-              { n: '03', t: 'Mineral Balance', d: 'Controlled remineralisation for taste and pH balance.' },
-              { n: '04', t: 'UV & Ozone', d: 'Final disinfection for microbiological safety.' },
-              { n: '05', t: 'Bottling', d: 'Automated, hygienic filling and sealing in food-grade facilities.' },
-              { n: '06', t: 'Quality Check', d: 'Every batch tested before release. Certificates of Analysis on request.' },
-            ].map((s) => (
-              <li class="reveal-child flex gap-3 p-4 rounded-xl bg-surface-2 border border-line hover:border-seal-300 transition-colors">
-                <div class="text-xs font-bold text-seal-600 w-6 shrink-0 pt-0.5">{s.n}</div>
-                <div>
-                  <h3 class="text-sm font-semibold text-foreground mb-0.5">{s.t}</h3>
-                  <p class="text-xs text-muted-foreground leading-snug">{s.d}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-
-          <div class="mt-10">
-            <a href="/quality" class="btn btn-outline">Learn about our quality →</a>
-          </div>
-        </div>
-
-        <div class="reveal">
-          <div class="relative w-full aspect-[4/5] rounded-3xl overflow-hidden shadow-lift bg-gradient-to-br from-seal-50 via-white to-seal-100 border border-seal-200 flex flex-col items-center justify-center p-10 text-center">
-            <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 20%, rgba(95,200,237,0.4), transparent 60%);"></div>
-            <img src="/logo.svg" alt="Modi Hydroshop logo" class="relative w-32 h-32 object-contain mb-6 drop-shadow-lg" width="128" height="128" loading="lazy" />
-            <p class="relative heading-3 text-foreground mb-2">Purified in Modimolle</p>
-            <p class="relative text-sm text-muted-foreground max-w-xs">Reverse Osmosis · UV &amp; Ozone · Batch-tested. Certificates of Analysis on request.</p>
-            <div class="relative mt-6 flex flex-wrap justify-center gap-2">
-              <span class="badge badge-seal">RO</span>
-              <span class="badge badge-seal">UV</span>
-              <span class="badge badge-seal">Ozone</span>
-              <span class="badge badge-seal">Tested</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ProcessPath
+    client:load
+    heading="Our process"
+    subheading="How we purify — a rigorous, multi-stage Reverse Osmosis process from source to sealed bottle."
+    steps={[
+      { number: '01', title: 'Source', body: 'Municipal water sourced and pre-filtered to remove sediment and chlorine.' },
+      { number: '02', title: 'Reverse Osmosis', body: 'High-pressure RO membranes remove dissolved solids, bacteria and impurities.' },
+      { number: '03', title: 'Mineral Balance', body: 'Controlled remineralisation for taste and pH balance.' },
+      { number: '04', title: 'UV & Ozone', body: 'Final disinfection for microbiological safety.' },
+      { number: '05', title: 'Bottling', body: 'Automated, hygienic filling and sealing in food-grade facilities.' },
+      { number: '06', title: 'Quality Check', body: 'Every batch tested before release. Certificates of Analysis on request.' },
+    ]}
+  />
 
   <section class="section bg-surface-2">
     <div class="container">
@@ -290,28 +258,75 @@ const waQuote = (product?: string) =>
     </div>
   </section>
 
+  <ReadinessBand
+    client:load
+    heading="Built for the next step"
+    subheading="When a tender, a loan, or a scale move opens, the businesses that qualify are the ones already compliant."
+    signals={[
+      { stat: 'B-BBEE', label: 'Level 1 contributor. Your engagement with us counts toward your own procurement scorecard.' },
+      { stat: 'CIPC', label: 'Registered company with full compliance documentation available.' },
+      { stat: 'Quality', label: 'Rigorous purification and testing on every batch we produce.' },
+    ]}
+    ctaText="Request a quote"
+    ctaHref="/contact"
+  />
+
+  <ValueProps
+    client:load
+    heading="Why Modi Water"
+    subheading="What sets us apart from the rest."
+    items={[
+      { num: '01', title: 'Integrity', body: 'Honest, transparent dealings with every client and partner.' },
+      { num: '02', title: 'Quality', body: 'Rigorous purification and testing on every batch we produce.' },
+      { num: '03', title: 'Safety', body: 'Food-grade processes that meet the highest hygiene standards.' },
+      { num: '04', title: 'Respect', body: 'We value our people, our clients, and our community.' },
+    ]}
+  />
+
+  <TrustStrip
+    client:load
+    heading="Why choose Modi Water"
+    subheading="If any of these matter to you, we should talk."
+    stats={[
+      { value: 'Pure Water', label: 'Multi-stage RO filtration, lab-tested for quality.' },
+      { value: 'Free Delivery', label: 'No charge within our 8-town service area.' },
+      { value: 'Local Support', label: 'Real people, fast response, based in Modimolle.' },
+    ]}
+  />
+
+  <SocialCard
+    client:load
+    links={[
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/company/modihydroshop' },
+      { label: 'Facebook', href: 'https://www.facebook.com/modihydroshop' },
+    ]}
+  />
+
   <section class="relative overflow-hidden bg-navy-900 text-white">
-    <div class="absolute inset-0">
-      <div class="absolute inset-0 bg-gradient-to-br from-navy-900 via-navy-800 to-seal-900/30"></div>
-      <div class="absolute inset-0 opacity-30" style="background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(95,200,237,0.3), transparent 70%);"></div>
-    </div>
-    <div class="container relative z-10 py-24 md:py-32 text-center max-w-3xl mx-auto">
-      <h2 class="heading-2 mb-5 text-white">Ready for premium hydration?</h2>
-      <p class="body-lg text-seal-200 mb-10 max-w-2xl mx-auto">
-        Custom solutions, volume pricing and dedicated support for your business, hospitality venue or event. Get a quote today.
-      </p>
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a href={waQuote()} target="_blank" rel="noopener noreferrer" class="btn btn-accent btn-lg shadow-lift hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5">
-          Get a quote on WhatsApp
-        </a>
-        <a href="mailto:lesibabdmaleka@gmail.com?subject=Quote%20request%20-%20Modi%20Hydroshop" class="btn btn-lg border border-white/30 text-white hover:bg-white hover:text-navy-900 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5">
-          Email us
-        </a>
+      <div class="absolute inset-0">
+            <Silk client:load speed={3} scale={1.2} color="#1B3A6B" noiseIntensity={0.8} rotation={0} />
+            <Strands client:load colors={["#2D7DD2", "#5FC8ED", "#0B1B3A"]} count={4} speed={0.3} amplitude={0.8} opacity={0.4} />
+            <div class="absolute inset-0 bg-navy-950/40" />
+          </div>
+      <div class="container relative z-10 py-24 md:py-32 text-center max-w-3xl mx-auto">
+        <MorphHeadline client:load as="h2" className="mb-5 text-white" style={{ fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)', lineHeight: 1.1 }}>
+          Ready for premium hydration?
+        </MorphHeadline>
+        <p class="body-lg text-seal-200 mb-10 max-w-2xl mx-auto">
+          Custom solutions, volume pricing and dedicated support for your business, hospitality venue or event. Get a quote today.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <SpecularButton client:load href={waQuote()} target="_blank" rel="noopener noreferrer" size="lg" baseColor="#2D7DD2" lineColor="#7DD3FC" textColor="#FFFFFF">
+            Get a quote on WhatsApp
+          </SpecularButton>
+          <a href="mailto:lesibabdmaleka@gmail.com?subject=Quote%20request%20-%20Modi%20Hydroshop" class="btn btn-lg border border-white/30 text-white hover:bg-white hover:text-navy-900 backdrop-blur-sm transition-all duration-300 hover:-translate-y-0.5">
+            Email us
+          </a>
+        </div>
+        <p class="caption text-seal-100/70 mt-8">
+          Or call {site.phone} · Mon–Fri 8am–5pm, Sat 8am–1pm
+        </p>
       </div>
-      <p class="caption text-seal-100/70 mt-8">
-        Or call {site.phone} · Mon–Fri 8am–5pm, Sat 8am–1pm
-      </p>
-    </div>
-  </section>
+    </section>
 
 </BaseLayout>

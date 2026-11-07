@@ -1,0 +1,162 @@
+/* SocialCard — brand-themed overlay card for the footer.
+   Palette: navy-950 #060E1E, navy-900 #0B1B3A, seal-500 #2D7DD2,
+   seal-400 #5FC8ED, paper #F4F2EC. Reuses Uiverse .card interaction. */
+
+.social-card {
+  position: relative;
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 1 / 1;
+  background: #060e1e;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: rgba(6, 14, 30, 0.45) 0px 7px 29px 0px;
+  transition: transform 0.6s ease, box-shadow 0.6s ease;
+}
+
+.social-card__bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 100% 107%,
+    #2d7dd2 0%,
+    #0b1b3a 38%,
+    #060e1e 72%,
+    #1e3a8a 100%
+  );
+  opacity: 0.9;
+}
+
+/* Center brand mark */
+.social-card__logo {
+  position: absolute;
+  right: 50%;
+  bottom: 50%;
+  transform: translate(50%, 50%);
+  transition: all 0.6s ease-in-out;
+  opacity: 0.92;
+}
+
+.social-card__logo img {
+  width: 56px;
+  height: auto;
+  filter: brightness(0) saturate(100%) invert(86%) sepia(18%) saturate(900%)
+    hue-rotate(2deg) brightness(95%) contrast(88%);
+}
+
+/* Reveal boxes */
+.social-card__box {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 10px;
+  text-align: right;
+  background: rgba(244, 242, 236, 0.16);
+  border-top: 2px solid rgba(244, 242, 236, 0.55);
+  border-right: 1px solid rgba(244, 242, 236, 0.4);
+  border-radius: 10% 13% 42% 0% / 10% 12% 75% 0%;
+  box-shadow: rgba(6, 14, 30, 0.4) -7px 7px 29px 0px;
+  transform-origin: bottom left;
+  transition: all 0.6s ease-in-out;
+}
+
+.social-card__box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.social-card__icon {
+  position: relative;
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  color: rgba(244, 242, 236, 0.85);
+}
+
+.social-card__icon svg {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.social-card__box1 {
+  width: 70%;
+  height: 70%;
+  bottom: -70%;
+  left: -70%;
+}
+.social-card__box1::before {
+  background: radial-gradient(circle at 30% 107%, #5FC8ED 0%, #2d7dd2 55%, #0b1b3a 100%);
+}
+
+.social-card__box2 {
+  width: 50%;
+  height: 50%;
+  bottom: -50%;
+  left: -50%;
+  transition-delay: 0.12s;
+}
+.social-card__box2::before {
+  background: radial-gradient(circle at 30% 107%, #2d7dd2 0%, #0b1b3a 95%);
+}
+
+.social-card__box3 {
+  width: 30%;
+  height: 30%;
+  bottom: -30%;
+  left: -30%;
+  transition-delay: 0.24s;
+}
+.social-card__box3::before {
+  background: radial-gradient(circle at 30% 107%, #1e3a8a 0%, #060e1e 95%);
+}
+
+.social-card__box4 {
+  width: 10%;
+  height: 10%;
+  bottom: -10%;
+  left: -10%;
+  transition-delay: 0.36s;
+}
+
+/* Hover (pointer devices) opens the petals */
+@media (hover: hover) and (pointer: fine) {
+  .social-card:hover {
+    transform: scale(1.06);
+    box-shadow: rgba(212, 175, 106, 0.35) 0px 10px 34px 0px;
+  }
+  .social-card:hover .social-card__box {
+    bottom: -1px;
+    left: -1px;
+  }
+  .social-card:hover .social-card__logo {
+    transform: translate(0, 0);
+    bottom: 18px;
+    right: 18px;
+  }
+  .social-card__box:hover::before {
+    opacity: 1;
+  }
+  .social-card__box:hover .social-card__icon {
+    color: #f4f2ec;
+    filter: drop-shadow(0 0 5px rgba(244, 242, 236, 0.9));
+  }
+}
+
+/* Touch / no-hover: keep petals open so icons are always reachable */
+@media (hover: none), (pointer: coarse) {
+  .social-card__box {
+    bottom: -1px;
+    left: -1px;
+  }
+  .social-card__logo {
+    bottom: 18px;
+    right: 18px;
+    transform: none;
+  }
+}
