@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { site } from '@/data/site';
+import LegalLayout from '@/components/wamambo/LegalLayout';
 ---
 <BaseLayout title="Terms of Service" description="Terms of service for Modi Hydroshop." noIndex={true}>
-  <section class="section">
-    <div class="container max-w-3xl">
-      <h1 class="heading-1 text-foreground mb-6">Terms of Service</h1>
-      <p class="text-muted-foreground">By using this website you agree to these terms. Orders are subject to availability and confirmation. Pricing and specifications may change without notice. {site.legalName} is not liable for indirect or consequential losses arising from use of our products or services beyond statutory limits.</p>
-      <p class="text-muted-foreground mt-4">Questions? Email <a href={`mailto:${site.email}`} class="link">{site.email}</a>.</p>
-    </div>
-  </section>
+  <LegalLayout client:load title="Terms of Service" intro="By using this website you agree to these terms." effectiveDate="2026">
+    <p class="text-muted-foreground">Orders are subject to availability and confirmation. Pricing and specifications may change without notice. {site.legalName} is not liable for indirect or consequential losses arising from use of our products or services beyond statutory limits.</p>
+    <p class="text-muted-foreground mt-4">Questions? Email <a href={`mailto:${site.email}`} class="link">{site.email}</a>.</p>
+  </LegalLayout>
 </BaseLayout>
